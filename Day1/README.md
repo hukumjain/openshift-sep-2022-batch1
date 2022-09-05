@@ -180,6 +180,24 @@
   - works just like kubectl in Kubernetes
   - behind the scene uses REST API calls to API Server to interact with OpenShift cluster
 
+## Openshift Container OS
+- RedHat Enterrprise CoreOS is an operating system used by Orchestration Platforms like Red Hat OpenShift or OKD( Opensource OpenShift )
+- comes with pre-installed specific version of CRI-O Container Runtime
+- comes with pre-installed specific version of Podman Container Engine
+
+## OpenShift Master Node
+- has CRI-O Container runtime installed
+- has Podman Container engine installed
+- has RedHat Enterprise CoreOS as the Operating System
+
+## OpenShift Worker Node
+- has CRI-O Container runtime installed
+- has Podman Container engine installed
+- has either RHEL or RedHat Enterprise CoreOS as the Operating System
 
 ## Creating a new-project
+```
+oc new-project <your-project-name>
+```
+
 
