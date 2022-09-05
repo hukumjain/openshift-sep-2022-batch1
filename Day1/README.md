@@ -334,4 +334,16 @@ oc create deployment nginx --image=bitnami/nginx:latest
 deployment.apps/nginx created
 </pre>
 
+## Listing the deployments in the current project
+```
+oc get deployments
+oc get deployment
+oc get deploy
+```
 
+Expected output
+<pre>
+(jegan@tektutor.org)$ <b>oc get deployments</b>
+NAME    READY   UP-TO-DATE   AVAILABLE   AGE
+nginx   1/1     1            1           16m
+</pre>
