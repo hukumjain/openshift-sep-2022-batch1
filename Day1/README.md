@@ -77,6 +77,16 @@
    - self-healing
      - whenever your application stops responding, orchestration platforms can detect that it attempts to repair by rebooting, deleting bad instance of your application with a new working instance of your application
      - 
+## Kubernetes
+- is an Container Orchestration Platform from Google
+- it supports many container runtimes
+- initial days it was supporting Docker by default by in latest versions it stopped supported Docker out of the box
+- Kubernetes used Dockershim for interacting with Docker Engine/Runtime
+- Dockershim is an interface used by Kubernetes to Docker interactions
+- Due to security reasons, Docker is deprecated by Kubernetes in latest versions. As part of this decision, Kubernetes removed Dockershim interface.
+- In latest versions, Kubernetes interacts with container runtimes via a common interafce called CRI ( Container Runtime Interface ) which is a specifications
+- The CRI specifications has to be implemented by the organization that developed the Container Runtime/Engine or by third-party
+- 
 
 
 ## OpenShift
