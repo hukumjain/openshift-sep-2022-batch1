@@ -198,6 +198,7 @@
 ## Creating a new-project
 ```
 oc new-project <your-project-name>
+oc new-project jegan
 ```
 
 
