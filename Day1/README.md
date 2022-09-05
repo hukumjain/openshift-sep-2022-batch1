@@ -377,19 +377,19 @@ nginx-78644964b4-grf8w   1/1     Running   0          19m
 
 ## Scale up the pod instances to 3 from 1
 ```
-o
+oc scale deploy/nginx --replicas=3
 ```
 
 Expected output
 <pre>
-(jegan@tektutor.org)$ oc scale deploy/nginx --replicas=3
+(jegan@tektutor.org)$ <b>oc scale deploy/nginx --replicas=3</b>
 deployment.apps/nginx scaled
-(jegan@tektutor.org)$ oc get pods
+(jegan@tektutor.org)$ <b>oc get pods</b>
 NAME                     READY   STATUS              RESTARTS   AGE
 nginx-78644964b4-dxx2c   0/1     ContainerCreating   0          1s
 nginx-78644964b4-ht472   0/1     ContainerCreating   0          1s
 nginx-78644964b4-nffbd   0/1     ContainerCreating   0          1s
-(jegan@tektutor.org)$ oc get pods -w
+(jegan@tektutor.org)$ <b>oc get pods -w</b>
 NAME                     READY   STATUS              RESTARTS   AGE
 nginx-78644964b4-dxx2c   0/1     ContainerCreating   0          4s
 nginx-78644964b4-ht472   0/1     ContainerCreating   0          4s
@@ -397,7 +397,7 @@ nginx-78644964b4-nffbd   0/1     ContainerCreating   0          4s
 nginx-78644964b4-nffbd   1/1     Running             0          6s
 nginx-78644964b4-ht472   1/1     Running             0          16s
 nginx-78644964b4-dxx2c   1/1     Running             0          16s
-^C(jegan@tektutor.org)$ oc get pods 
+^C(jegan@tektutor.org)$ <b>oc get pods</b>
 NAME                     READY   STATUS    RESTARTS   AGE
 nginx-78644964b4-dxx2c   1/1     Running   0          22s
 nginx-78644964b4-ht472   1/1     Running   0          22s
@@ -424,7 +424,7 @@ oc get nodes -o wide
 ```
 
 <pre>
-(jegan@tektutor.org)$ oc get nodes -o wide
+(jegan@tektutor.org)$ <b>oc get nodes -o wide</b>
 NAME                        STATUS   ROLES           AGE   VERSION           INTERNAL-IP       EXTERNAL-IP   OS-IMAGE                                                        KERNEL-VERSION                 CONTAINER-RUNTIME
 master-1.ocp.tektutor.org   Ready    master,worker   24d   v1.23.5+012e945   192.168.122.165   <none>        Red Hat Enterprise Linux CoreOS 410.84.202207262020-0 (Ootpa)   4.18.0-305.57.1.el8_4.x86_64   cri-o://1.23.3-11.rhaos4.10.gitddf4b1a.1.el8
 master-2.ocp.tektutor.org   Ready    master,worker   24d   v1.23.5+012e945   192.168.122.250   <none>        Red Hat Enterprise Linux CoreOS 410.84.202207262020-0 (Ootpa)   4.18.0-305.57.1.el8_4.x86_64   cri-o://1.23.3-11.rhaos4.10.gitddf4b1a.1.el8
