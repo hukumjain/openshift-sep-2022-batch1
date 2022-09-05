@@ -323,8 +323,6 @@ Expected output
 Already on project "jegan" on server "https://api.ocp.tektutor.org:6443".
 </pre>
 
-
-
 ## Deploying nginx web server in our new project
 ```
 oc create deployment nginx --image=bitnami/nginx:latest
@@ -432,3 +430,41 @@ master-3.ocp.tektutor.org   Ready    master,worker   24d   v1.23.5+012e945   192
 worker-1.ocp.tektutor.org   Ready    worker          24d   v1.23.5+012e945   192.168.122.120   <none>        Red Hat Enterprise Linux CoreOS 410.84.202207262020-0 (Ootpa)   4.18.0-305.57.1.el8_4.x86_64   cri-o://1.23.3-11.rhaos4.10.gitddf4b1a.1.el8
 worker-2.ocp.tektutor.org   Ready    worker          24d   v1.23.5+012e945   192.168.122.75    <none>        Red Hat Enterprise Linux CoreOS 410.84.202207262020-0 (Ootpa)   4.18.0-305.57.1.el8_4.x86_64   cri-o://1.23.3-11.rhaos4.10.gitddf4b1a.1.el8
 </pre>
+
+## What happens internally when we deployment an application with below command
+```
+oc create deployment nginx --image=bitnami/nginx:latest
+```
+
+<pre>
+1. oc client tool, make a REST API call to API Server requesting to create a Deployment by name 'nginx' using container image 'bitnami/nginx:latest'
+
+2. API Server receives the request from oc client tool, creates a Deployment database entry in the etcd key/value pair database.
+
+3. API Server triggers an event like "New Deployment Created"
+
+4. Deployment Controller, receives the event from API Server, it fetches the deployment details and makes a REST call to API Server requesting to create a ReplicaSet.
+
+5. API Server receives the request from Deployment Controller, creates the ReplicaSet database entry in etcd database.
+
+6. API triggers an event something like like "New ReplicaSet Created".
+
+7. ReplicaSet Controller receives the event, it fetches details and makes REST call request to API Server asking it to create Pods.
+</pre>
+
+8. API Server receives the request from ReplicaSet Controller, creates Pod entrie(s) into the etcd database.
+
+9. API Server triggers an event per Pod entry created in the etcd database.  The event looks sothing like "New Pod Created".
+
+10. Scheduler receives the event and it identifies health nodes where the Pod can be deployment.
+
+11. Scheduler makes REST call to API Server sending its scheduling recommendations.
+
+12. API Server updates the scheduling information in the Pod entries on the etcd database.
+
+13. API Server triggers events something like "Pod scheduled to node1"
+
+14. The kubelet agent running on the node receives the event, it pulls the container image and creates the Pod.
+
+15. Kubelet monitors the status of the Pod and keeps reporting the status to API Server like a heart-beat event.
+
