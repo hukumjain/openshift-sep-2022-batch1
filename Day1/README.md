@@ -347,3 +347,30 @@ Expected output
 NAME    READY   UP-TO-DATE   AVAILABLE   AGE
 nginx   1/1     1            1           16m
 </pre>
+
+## Listing the replicasets in your current project
+```
+oc get replicasets
+oc get replicaset
+oc get rs
+```
+Expected output
+<pre>
+(jegan@tektutor.org)$ <b>oc get replicasets</b>
+NAME               DESIRED   CURRENT   READY   AGE
+nginx-78644964b4   1         1         1       19m
+</pre>
+
+## Listing Pods
+```
+oc get pods
+oc get pod
+oc get po
+```
+
+Expected output
+<pre>
+(jegan@tektutor.org)$ <b>oc get pods</b>
+NAME                     READY   STATUS    RESTARTS   AGE
+nginx-78644964b4-grf8w   1/1     Running   0          19m
+</pre>
