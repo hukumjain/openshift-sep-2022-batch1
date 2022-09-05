@@ -244,7 +244,7 @@ Already on project "jegan" on server "https://api.ocp.tektutor.org:6443".
 ```
 oc create deployment nginx --image=bitnami/nginx:latest
 ```
-</pre>
+<pre>
 (jegan@tektutor.org)$ <b>oc create deployment nginx --image=bitnami/nginx:latest</b>
 deployment.apps/nginx created
 </pre>
