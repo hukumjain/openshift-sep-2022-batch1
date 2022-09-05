@@ -450,7 +450,6 @@ oc create deployment nginx --image=bitnami/nginx:latest
 6. API triggers an event something like like "New ReplicaSet Created".
 
 7. ReplicaSet Controller receives the event, it fetches details and makes REST call request to API Server asking it to create Pods.
-</pre>
 
 8. API Server receives the request from ReplicaSet Controller, creates Pod entrie(s) into the etcd database.
 
@@ -467,4 +466,5 @@ oc create deployment nginx --image=bitnami/nginx:latest
 14. The kubelet agent running on the node receives the event, it pulls the container image and creates the Pod.
 
 15. Kubelet monitors the status of the Pod and keeps reporting the status to API Server like a heart-beat event.
+</pre>
 
