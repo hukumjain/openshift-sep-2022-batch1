@@ -195,6 +195,12 @@
 - has Podman Container engine installed
 - has either RHEL or RedHat Enterprise CoreOS as the Operating System
 
+
+## Installing RedHat OpenShift on your laptop/desktop
+<pre>
+https://developers.redhat.com/products/openshift-local/overview
+</pre>
+
 ## Creating a new-project
 ```
 oc new-project <your-project-name>
