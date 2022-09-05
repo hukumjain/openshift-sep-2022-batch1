@@ -214,3 +214,14 @@ to build a new example application in Ruby. Or use kubectl to deploy a simple Ku
 
     kubectl create deployment hello-node --image=k8s.gcr.io/e2e-test-images/agnhost:2.33 -- /agnhost serve-hostname
 </pre>
+
+## Deploying nginx web server in our new project
+```
+oc create deployment nginx --image=bitnami/nginx:latest
+```
+
+
+</pre>
+(jegan@tektutor.org)$ <b>oc create deployment nginx --image=bitnami/nginx:latest</b>
+deployment.apps/nginx created
+</pre>
