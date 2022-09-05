@@ -417,3 +417,18 @@ nginx-78644964b4-dxx2c   1/1     Running   0          6m36s   10.128.2.89    wor
 nginx-78644964b4-ht472   1/1     Running   0          6m36s   10.128.1.66    master-2.ocp.tektutor.org   <none>           <none>
 nginx-78644964b4-nffbd   1/1     Running   0          6m36s   10.131.1.157   worker-1.ocp.tektutor.org   <none>           <none>
 </pre>
+
+## Finding the Node IP and OS details
+```
+oc get nodes -o wide
+```
+
+<pre>
+(jegan@tektutor.org)$ oc get nodes -o wide
+NAME                        STATUS   ROLES           AGE   VERSION           INTERNAL-IP       EXTERNAL-IP   OS-IMAGE                                                        KERNEL-VERSION                 CONTAINER-RUNTIME
+master-1.ocp.tektutor.org   Ready    master,worker   24d   v1.23.5+012e945   192.168.122.165   <none>        Red Hat Enterprise Linux CoreOS 410.84.202207262020-0 (Ootpa)   4.18.0-305.57.1.el8_4.x86_64   cri-o://1.23.3-11.rhaos4.10.gitddf4b1a.1.el8
+master-2.ocp.tektutor.org   Ready    master,worker   24d   v1.23.5+012e945   192.168.122.250   <none>        Red Hat Enterprise Linux CoreOS 410.84.202207262020-0 (Ootpa)   4.18.0-305.57.1.el8_4.x86_64   cri-o://1.23.3-11.rhaos4.10.gitddf4b1a.1.el8
+master-3.ocp.tektutor.org   Ready    master,worker   24d   v1.23.5+012e945   192.168.122.218   <none>        Red Hat Enterprise Linux CoreOS 410.84.202207262020-0 (Ootpa)   4.18.0-305.57.1.el8_4.x86_64   cri-o://1.23.3-11.rhaos4.10.gitddf4b1a.1.el8
+worker-1.ocp.tektutor.org   Ready    worker          24d   v1.23.5+012e945   192.168.122.120   <none>        Red Hat Enterprise Linux CoreOS 410.84.202207262020-0 (Ootpa)   4.18.0-305.57.1.el8_4.x86_64   cri-o://1.23.3-11.rhaos4.10.gitddf4b1a.1.el8
+worker-2.ocp.tektutor.org   Ready    worker          24d   v1.23.5+012e945   192.168.122.75    <none>        Red Hat Enterprise Linux CoreOS 410.84.202207262020-0 (Ootpa)   4.18.0-305.57.1.el8_4.x86_64   cri-o://1.23.3-11.rhaos4.10.gitddf4b1a.1.el8
+</pre>
