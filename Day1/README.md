@@ -374,3 +374,46 @@ Expected output
 NAME                     READY   STATUS    RESTARTS   AGE
 nginx-78644964b4-grf8w   1/1     Running   0          19m
 </pre>
+
+## Scale up the pod instances to 3 from 1
+```
+o
+```
+
+Expected output
+<pre>
+(jegan@tektutor.org)$ oc scale deploy/nginx --replicas=3
+deployment.apps/nginx scaled
+(jegan@tektutor.org)$ oc get pods
+NAME                     READY   STATUS              RESTARTS   AGE
+nginx-78644964b4-dxx2c   0/1     ContainerCreating   0          1s
+nginx-78644964b4-ht472   0/1     ContainerCreating   0          1s
+nginx-78644964b4-nffbd   0/1     ContainerCreating   0          1s
+(jegan@tektutor.org)$ oc get pods -w
+NAME                     READY   STATUS              RESTARTS   AGE
+nginx-78644964b4-dxx2c   0/1     ContainerCreating   0          4s
+nginx-78644964b4-ht472   0/1     ContainerCreating   0          4s
+nginx-78644964b4-nffbd   0/1     ContainerCreating   0          4s
+nginx-78644964b4-nffbd   1/1     Running             0          6s
+nginx-78644964b4-ht472   1/1     Running             0          16s
+nginx-78644964b4-dxx2c   1/1     Running             0          16s
+^C(jegan@tektutor.org)$ oc get pods 
+NAME                     READY   STATUS    RESTARTS   AGE
+nginx-78644964b4-dxx2c   1/1     Running   0          22s
+nginx-78644964b4-ht472   1/1     Running   0          22s
+nginx-78644964b4-nffbd   1/1     Running   0          22s
+</pre>
+
+## Finding the Pod IP and the node in which they are running
+```
+oc get pods -o wide
+```
+
+Expected output
+<pre>
+(jegan@tektutor.org)$ <b>oc get pods -o wide</b>
+NAME                     READY   STATUS    RESTARTS   AGE     IP             NODE                        NOMINATED NODE   READINESS GATES
+nginx-78644964b4-dxx2c   1/1     Running   0          6m36s   10.128.2.89    worker-2.ocp.tektutor.org   <none>           <none>
+nginx-78644964b4-ht472   1/1     Running   0          6m36s   10.128.1.66    master-2.ocp.tektutor.org   <none>           <none>
+nginx-78644964b4-nffbd   1/1     Running   0          6m36s   10.131.1.157   worker-1.ocp.tektutor.org   <none>           <none>
+</pre>
