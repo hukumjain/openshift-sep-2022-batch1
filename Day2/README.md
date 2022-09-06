@@ -1,5 +1,34 @@
 # OpenShift
 
+## Installing Code Ready Containers OpenShift in your Laptop/Desktop for learning purpose
+```
+cd ~/Downloads
+
+https://developers.redhat.com/content-gateway/rest/mirror/pub/openshift-v4/clients/crc/latest/crc-linux-amd64.tar.xz
+
+tar xvf crc-linux-amd64.tar.xz
+cd crc-linux-2.8.0-amd64/
+
+sudo mv crc /usr/local/bin
+```
+
+Expected output
+<pre>
+[jegan@master Downloads]$ tar xvf crc-linux-amd64.tar.xz 
+crc-linux-2.8.0-amd64/
+crc-linux-2.8.0-amd64/LICENSE
+crc-linux-2.8.0-amd64/crc
+[jegan@master Downloads]$ ls
+crc-linux-2.8.0-amd64  crc-linux-amd64.tar.xz
+[jegan@master Downloads]$ cd crc-linux-2.8.0-amd64/
+[jegan@master crc-linux-2.8.0-amd64]$ ls -l
+total 207180
+-rwxr-xr-x. 1 jegan jegan 82464001 Aug 30 03:22 crc
+-rw-r--r--. 1 jegan jegan    10759 Aug 30 03:22 LICENSE
+[jegan@master crc-linux-2.8.0-amd64]$ sudo mv crc /usr/local/bin
+[sudo] password for jegan: 
+</pre>
+
 ## ⛹️‍♂️ Lab - Creating an internal service (ClusterIP)
 ```
 oc expose deploy/nginx --type=ClusterIP --port=8080
