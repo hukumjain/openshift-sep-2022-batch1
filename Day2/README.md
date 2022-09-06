@@ -217,7 +217,7 @@ ubi8-openjdk-8                                       image-registry.openshift-im
 ubi8-openjdk-8-runtime                               image-registry.openshift-image-registry.svc:5000/openshift/ubi8-openjdk-8-runtime                               1.10,1.9                                                 3 weeks ago
 </pre>
 
-## List the dns service
+## ⛹️‍♀️ Lab - List the dns service
 ```
 oc get svc --all-namespaces | grep dns-default
 ```
@@ -239,7 +239,7 @@ NAME          TYPE        CLUSTER-IP    EXTERNAL-IP   PORT(S)                  A
 dns-default   ClusterIP   172.30.0.10   <none>        53/UDP,53/TCP,9154/TCP   25d
 </pre>
 
-## Listing the CoreDNS Daemonset
+## ⛹️‍♀️ Lab - Listing the CoreDNS Daemonset
 ```
 oc get daemonsets -n openshift-dns
 ```
