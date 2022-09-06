@@ -238,3 +238,31 @@ Expected output
 NAME          TYPE        CLUSTER-IP    EXTERNAL-IP   PORT(S)                  AGE
 dns-default   ClusterIP   172.30.0.10   <none>        53/UDP,53/TCP,9154/TCP   25d
 </pre>
+
+## Listing the CoreDNS Daemonset
+```
+oc get daemonsets -n openshift-dns
+```
+
+Expected output
+<pre>
+(jegan@tektutor.org)$ <b>oc get daemonsets -n openshift-dns</b>
+NAME            DESIRED   CURRENT   READY   UP-TO-DATE   AVAILABLE   NODE SELECTOR            AGE
+dns-default     5         5         5       5            5           kubernetes.io/os=linux   25d
+node-resolver   5         5         5       5            5           kubernetes.io/os=linux   25d
+</pre>
+
+## The dns server entry in each pod
+```
+oc rsh deploy/nginx
+cat /etc/resolv.conf
+```
+
+Expected output
+<pre>
+(jegan@tektutor.org)$ oc rsh deploy/nginx
+$ cat /etc/resolv.conf
+search jegan.svc.cluster.local svc.cluster.local cluster.local ocp.tektutor.org
+nameserver 172.30.0.10
+options ndots:5
+</pre>
