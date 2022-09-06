@@ -1,6 +1,6 @@
 # OpenShift
 
-## Creating an internal service (ClusterIP)
+## ⛹️‍♂️ Lab - Creating an internal service (ClusterIP)
 ```
 oc expose deploy/nginx --type=ClusterIP --port=8080
 ```
@@ -12,7 +12,7 @@ service/nginx exposed
 </pre>
 
 
-## Listing the clusterip(internal) service
+## ⛹️‍♂️ Lab - Listing the clusterip(internal) service
 ```
 oc get services
 oc get service
@@ -26,7 +26,7 @@ NAME    TYPE        CLUSTER-IP      EXTERNAL-IP   PORT(S)    AGE
 nginx   ClusterIP   172.30.139.58   <none>        8080/TCP   15m
 </pre>
 
-## Inspecting pod endpoints loadbalanced by service
+## ⛹️‍♂️ Lab - Inspecting pod endpoints loadbalanced by service
 ```
 oc describe svc/nginx
 ```
@@ -51,7 +51,7 @@ Session Affinity:  None
 Events:            <none>
 </pre>
 
-## Creating a public route(url) to access the clusterip service
+## ⛹️‍♂️ Lab - Creating a public route(url) to access the clusterip service
 ```
 oc expose svc/nginx
 ```
@@ -63,7 +63,7 @@ route.route.openshift.io/nginx exposed
 
 </pre>
 
-## Listing the routes
+## ⛹️‍♂️ Lab - Listing the routes
 ```
 oc get routes
 oc get route
@@ -76,7 +76,7 @@ NAME    HOST/PORT                           PATH   SERVICES   PORT   TERMINATION
 nginx   nginx-jegan.apps.ocp.tektutor.org          nginx      8080                 None
 </pre>
 
-## Accessing the route
+## ⛹️‍♂️ Lab - Accessing the route
 ```
 curl http://nginx-jegan.apps.ocp.tektutor.org:80
 curl http://nginx-jegan.apps.ocp.tektutor.org
