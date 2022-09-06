@@ -216,3 +216,25 @@ ubi8-openjdk-11-runtime                              image-registry.openshift-im
 ubi8-openjdk-8                                       image-registry.openshift-image-registry.svc:5000/openshift/ubi8-openjdk-8                                       1.10,1.3                                                 3 weeks ago
 ubi8-openjdk-8-runtime                               image-registry.openshift-image-registry.svc:5000/openshift/ubi8-openjdk-8-runtime                               1.10,1.9                                                 3 weeks ago
 </pre>
+
+## List the dns service
+```
+oc get svc --all-namespaces | grep dns-default
+```
+
+Expected output
+<pre>
+(jegan@tektutor.org)$ oc get svc --all-namespaces | grep dns-default
+openshift-dns                                      dns-default                                ClusterIP      172.30.0.10      <none>                                 53/UDP,53/TCP,9154/TCP                25d
+</pre>
+
+```
+oc get svc -n openshift-dns
+```
+
+Expected output
+<pre>
+(jegan@tektutor.org)$ <b>oc get svc -n openshift-dns</b>
+NAME          TYPE        CLUSTER-IP    EXTERNAL-IP   PORT(S)                  AGE
+dns-default   ClusterIP   172.30.0.10   <none>        53/UDP,53/TCP,9154/TCP   25d
+</pre>
