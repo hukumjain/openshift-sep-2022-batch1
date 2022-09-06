@@ -252,7 +252,7 @@ dns-default     5         5         5       5            5           kubernetes.
 node-resolver   5         5         5       5            5           kubernetes.io/os=linux   25d
 </pre>
 
-## The dns server entry in each pod
+##  ⛹️‍♀️ Lab - The dns server entry in each pod
 ```
 oc rsh deploy/nginx
 cat /etc/resolv.conf
