@@ -62,3 +62,16 @@ curl http://<worker-2-node-ip>:<node-port>
 
 curl http://192.168.122.218:30764
 ```
+
+## ⛹️‍♀️ Lab - Creating LoadBalancer service
+
+```
+oc delete svc/nginx
+
+oc expose deploy/nginx --type=LoadBalancer --port=8080
+```
+
+For more detailed instructions, please refer my medium blog below
+<pre>
+https://medium.com/tektutor/using-metallb-loadbalancer-with-bare-metal-openshift-onprem-4230944bfa35
+</pre>
