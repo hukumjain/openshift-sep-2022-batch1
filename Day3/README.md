@@ -1,6 +1,6 @@
 # Day3
 
-## Creating a NodePort external service for nginx deployment
+## ⛹️‍♀️ Lab - Creating a NodePort external service for nginx deployment
 ```
 oc expose deploy/nginx --type=NodePort --port=8080
 oc get svc
@@ -62,4 +62,3 @@ curl http://<worker-2-node-ip>:<node-port>
 
 curl http://192.168.122.218:30764
 ```
-
