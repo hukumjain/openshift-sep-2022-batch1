@@ -34,3 +34,32 @@ External Traffic Policy:  Cluster
 Events:                   <none>
 </pre>
 
+### Accessing the NodePort service
+
+Find the Node IP Addresses
+```
+oc get nodes -o wide
+```
+Expected output
+<pre>
+(jegan@tektutor.org)$ oc get nodes -o wide
+NAME                        STATUS   ROLES           AGE   VERSION           INTERNAL-IP       EXTERNAL-IP   OS-IMAGE                                                        KERNEL-VERSION                 CONTAINER-RUNTIME
+master-1.ocp.tektutor.org   Ready    master,worker   26d   v1.23.5+012e945   192.168.122.165   <none>        Red Hat Enterprise Linux CoreOS 410.84.202207262020-0 (Ootpa)   4.18.0-305.57.1.el8_4.x86_64   cri-o://1.23.3-11.rhaos4.10.gitddf4b1a.1.el8
+master-2.ocp.tektutor.org   Ready    master,worker   26d   v1.23.5+012e945   192.168.122.250   <none>        Red Hat Enterprise Linux CoreOS 410.84.202207262020-0 (Ootpa)   4.18.0-305.57.1.el8_4.x86_64   cri-o://1.23.3-11.rhaos4.10.gitddf4b1a.1.el8
+master-3.ocp.tektutor.org   Ready    master,worker   26d   v1.23.5+012e945   192.168.122.218   <none>        Red Hat Enterprise Linux CoreOS 410.84.202207262020-0 (Ootpa)   4.18.0-305.57.1.el8_4.x86_64   cri-o://1.23.3-11.rhaos4.10.gitddf4b1a.1.el8
+worker-1.ocp.tektutor.org   Ready    worker          26d   v1.23.5+012e945   192.168.122.120   <none>        Red Hat Enterprise Linux CoreOS 410.84.202207262020-0 (Ootpa)   4.18.0-305.57.1.el8_4.x86_64   cri-o://1.23.3-11.rhaos4.10.gitddf4b1a.1.el8
+worker-2.ocp.tektutor.org   Ready    worker          26d   v1.23.5+012e945   192.168.122.75    <none>        Red Hat Enterprise Linux CoreOS 410.84.202207262020-0 (Ootpa)   4.18.0-305.57.1.el8_4.x86_64   cri-o://1.23.3-11.rhaos4.10.gitddf4b1a.1.el8
+</pre>
+
+Let's access the node port external service
+
+```
+curl http://<master-1-node-ip>:<node-port>
+curl http://<master-2-node-ip>:<node-port>
+curl http://<master-3-node-ip>:<node-port>
+curl http://<worker-1-node-ip>:<node-port>
+curl http://<worker-2-node-ip>:<node-port>
+
+curl http://192.168.122.218:30764
+```
+
