@@ -176,7 +176,7 @@ sha256:8a2ac9c01b3623370471016f6f606b614d884e0de8f9f08ce188eefc762fdcd3   image-
 image.image.openshift.io "sha256:684ec0954fe19624b9cbe9bd4ae95d68a8325593cfb78ebedc591cc90eb1f22a" deleted
 </pre>
 
-## Deploying application as a template
+## ⛹️‍♀️ Lab - Deploying application as a template
 ```
 cd ~/openshift-sep-2022-batch1
 git pull
