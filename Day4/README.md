@@ -1,6 +1,6 @@
 # Day 4
 
-## Lab - Deploying application from existing Container Image
+## ⛹️‍♂️ Lab - Deploying application from existing Container Image
 ```
 oc delete project jegan
 
@@ -10,7 +10,7 @@ oc expose deploy/nginx --port=8080
 oc expose svc/nginx
 ```
 
-## Lab - Deploying application from Dockerfile from a GitHub Repo
+## ⛹️‍♀️ Lab - Deploying application from Dockerfile from a GitHub Repo
 ```
 oc delete deploy/hello
 
@@ -18,7 +18,7 @@ oc new-app --name=hello https://github.com/tektutor/spring-ms.git
 ```
 
 
-## Lab - Deploying application from source code from a GitHub repo
+## ⛹️ Lab - Deploying application from source code from a GitHub repo
 ```
 oc delete deploy/hello
 
