@@ -174,3 +174,28 @@ mysql> <b>exit</b>
 Bye
 $ <b>exit</b>
 </pre>
+
+
+
+## Deploying mysql db server in declarative style using manifest(yaml) file
+
+### Delete any existing mysql deployment
+```
+oc delete deploy/mysql
+```
+
+Let's deploy mysql db server declaratively now
+```
+cd ~/openshift-sep-2022-batch1
+git pull
+
+cd Day4/declarative-manifests/lab1
+
+oc apply -f mysql-deployment
+oc apply -f mysql-service.yml
+```
+
+Expected output
+<pre>
+
+</pre>
