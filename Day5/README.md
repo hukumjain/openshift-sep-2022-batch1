@@ -90,26 +90,72 @@ Checking the build output
 ```
 oc logs -f bc/spring-hello
 ```
-
-Expected output (Only the last few lines are pasted here)
+Expected output (Only relevant output is captured to avoid bloating with unnecessary logs)
 <pre>
-30076a5355466d822b2e3466d9a4c3910ecc"
---> 700719db884
-[2/2] STEP 5/5: LABEL "io.openshift.build.commit.author"="Jeganathan Swaminathan <mail2jegan@gmail.com>" "io.openshift.build.commit.date"="Fri Aug 12 06:40:48 2022 +0530" "io.openshift.build.commit.id"="5a2a30076a5355466d822b2e3466d9a4c3910ecc" "io.openshift.build.commit.message"="Update README.md" "io.openshift.build.commit.ref"="main" "io.openshift.build.name"="spring-hello-1" "io.openshift.build.namespace"="jegan" "io.openshift.build.source-context-dir"="Day5/ImageStreamAndBuildConfig" "io.openshift.build.source-location"="https://github.com/tektutor/openshift-aug-2022.git"
-[2/2] COMMIT temp.builder.openshift.io/jegan/spring-hello-1:81ec71e7
---> f447bd29660
-Successfully tagged temp.builder.openshift.io/jegan/spring-hello-1:81ec71e7
-f447bd29660c4b70800af1dc1adc056a5a2073f4896f0ee963ad21bc539c23ed
+(jegan@tektutor.org)$ <b>oc logs -f bc/spring-hello</b>
+Cloning "https://github.com/tektutor/openshift-sep-2022-batch1.git" ...
+	Commit:	63b8d7517ab2c8a8a80879f90dea7511d1b5359c (Updated buildconfig to point to latest repo.)
+	Author:	Jeganathan Swaminathan <mail2jegan@gmail.com>
+	Date:	Fri Sep 9 04:10:30 2022 +0530
+time="2022-09-08T22:45:49Z" level=info msg="Not using native diff for overlay, this may cause degraded performance for building images: kernel has CONFIG_OVERLAY_FS_REDIRECT_DIR enabled"
+I0908 22:45:49.332564       1 defaults.go:102] Defaulting to storage driver "overlay" with options [mountopt=metacopy=on].
+Caching blobs under "/var/cache/blobs".
+
+Pulling image registry.redhat.io/ubi8/openjdk-11:latest ...
+Trying to pull registry.redhat.io/ubi8/openjdk-11:latest...
+Getting image source signatures
+Copying blob sha256:f94f36311f7d847df82ebea1c65f0f7ab3479f519a72e6ffef7964c2e0789343
+Copying blob sha256:b336a633f9e2c8ec18c45427d7e957df6d20ec09e71eee92c2f3247bb63c2d66
+Copying blob sha256:d6e3788a121c267b721a23e030dd339c41f70721e09bdf4b21051cfb22421025
+Copying config sha256:2e897fa1efd14a9365bb5a60d681d211bdcfeffe7fb4c0da176872b0bad12caf
+Writing manifest to image destination
+Storing signatures
+Adding transient rw bind mount for /run/secrets/rhsm
+[1/2] STEP 1/6: FROM registry.redhat.io/ubi8/openjdk-11:latest AS builder
+[1/2] STEP 2/6: MAINTAINER Jeganathan Swaminathan <jegan@tektutor.org>
+--> 1b083dffe68
+[1/2] STEP 3/6: RUN mkdir -p -m 0700 ./hello/target
+time="2022-09-08T22:46:10Z" level=warning msg="Adding metacopy option, configured globally"
+--> da1e1e4a96d
+[1/2] STEP 4/6: WORKDIR ./hello
+--> 975127a41e5
+[1/2] STEP 5/6: COPY . ./
+time="2022-09-08T22:46:11Z" level=warning msg="Adding metacopy option, configured globally"
+--> 69ee4504b91
+[1/2] STEP 6/6: RUN mvn package && cp ./target/spring-hello-1.0.jar /tmp/app.jar
+[INFO] Scanning for projects...
+[INFO] Replacing main artifact with repackaged archive
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD SUCCESS
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time:  03:06 min
+[INFO] Finished at: 2022-09-08T22:49:21Z
+[INFO] ------------------------------------------------------------------------
+time="2022-09-08T22:49:21Z" level=warning msg="Adding metacopy option, configured globally"
+--> 22323284626
+[2/2] STEP 1/5: FROM registry.redhat.io/ubi8/openjdk-11:latest AS runner
+[2/2] STEP 2/5: COPY --from=builder /tmp/app.jar .
+time="2022-09-08T22:49:26Z" level=warning msg="Adding metacopy option, configured globally"
+--> 1821f8b6c85
+[2/2] STEP 3/5: CMD ["java","-jar","./app.jar"]
+--> 22add4d24a3
+[2/2] STEP 4/5: ENV "OPENSHIFT_BUILD_NAME"="spring-hello-1" "OPENSHIFT_BUILD_NAMESPACE"="jegan" "OPENSHIFT_BUILD_SOURCE"="https://github.com/tektutor/openshift-sep-2022-batch1.git" "OPENSHIFT_BUILD_COMMIT"="63b8d7517ab2c8a8a80879f90dea7511d1b5359c"
+--> b1998e19bb1
+[2/2] STEP 5/5: LABEL "io.openshift.build.commit.author"="Jeganathan Swaminathan <mail2jegan@gmail.com>" "io.openshift.build.commit.date"="Fri Sep 9 04:10:30 2022 +0530" "io.openshift.build.commit.id"="63b8d7517ab2c8a8a80879f90dea7511d1b5359c" "io.openshift.build.commit.message"="Updated buildconfig to point to latest repo." "io.openshift.build.commit.ref"="main" "io.openshift.build.name"="spring-hello-1" "io.openshift.build.namespace"="jegan" "io.openshift.build.source-context-dir"="Day5/ImageStreamAndBuildConfig" "io.openshift.build.source-location"="https://github.com/tektutor/openshift-sep-2022-batch1.git"
+[2/2] COMMIT temp.builder.openshift.io/jegan/spring-hello-1:14cbaefe
+--> 9b5c5a6fed3
+Successfully tagged temp.builder.openshift.io/jegan/spring-hello-1:14cbaefe
+9b5c5a6fed342006f55f3dd00f38b50bec44b8938816cc59b3adf90f14c200c8
 
 Pushing image image-registry.openshift-image-registry.svc:5000/jegan/tektutor-spring-hello:latest ...
 Getting image source signatures
-Copying blob sha256:1e09a5ee0038fbe06a18e7f355188bbabc387467144abcd435f7544fef395aa1
-Copying blob sha256:0d725b91398ed3db11249808d89e688e62e511bbd4a2e875ed8493ce1febdb2c
-Copying blob sha256:e441d34134fac91baa79be3e2bb8fb3dba71ba5c1ea012cb5daeb7180a054687
-Copying blob sha256:dab0c9d1d83f19939b2d1c95969e68abd9ba8b4e0f2b6c4866e3355393b4a2ca
-Copying config sha256:f447bd29660c4b70800af1dc1adc056a5a2073f4896f0ee963ad21bc539c23ed
+Copying blob sha256:b336a633f9e2c8ec18c45427d7e957df6d20ec09e71eee92c2f3247bb63c2d66
+Copying blob sha256:d6e3788a121c267b721a23e030dd339c41f70721e09bdf4b21051cfb22421025
+Copying blob sha256:f94f36311f7d847df82ebea1c65f0f7ab3479f519a72e6ffef7964c2e0789343
+Copying blob sha256:ad3afacdb9c6f1bc5fbe86be1e13eb8e540fa504c2a07df5b7d4c133e848d483
+Copying config sha256:9b5c5a6fed342006f55f3dd00f38b50bec44b8938816cc59b3adf90f14c200c8
 Writing manifest to image destination
 Storing signatures
-Successfully pushed image-registry.openshift-image-registry.svc:5000/jegan/tektutor-spring-hello@sha256:faecafdf6485c222df0b56e97cce4a36cd843f3473f91d987303b58b785ba9ce
+Successfully pushed image-registry.openshift-image-registry.svc:5000/jegan/tektutor-spring-hello@sha256:8a2ac9c01b3623370471016f6f606b614d884e0de8f9f08ce188eefc762fdcd3
 Push successful
 </pre>
