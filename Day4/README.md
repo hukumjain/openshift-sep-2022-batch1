@@ -55,7 +55,7 @@ Expected output
 (jegan@tektutor.org)$ <b>oc logs -f buildconfig/hello</b>
 </pre>
 
-## Deploying mysql database 
+## ⛹️‍♀️ Lab - Deploying mysql database 
 ```
 oc create deployment mysql --image=bitnami/mysql:latest
 oc set env deploy/mysql MYSQL_ROOT_PASSWORD=root
@@ -63,19 +63,19 @@ oc set env deploy/mysql MYSQL_ROOT_PASSWORD=root
 
 Expected output
 <pre>
-(jegan@tektutor.org)$ oc create deployment mysql --image=bitnami/mysql:latest
+(jegan@tektutor.org)$ <b>oc create deployment mysql --image=bitnami/mysql:latest</b>
 deployment.apps/mysql created
-(jegan@tektutor.org)$ oc get deploy,po
+(jegan@tektutor.org)$ <b>oc get deploy,po</b>
 NAME                    READY   UP-TO-DATE   AVAILABLE   AGE
 deployment.apps/mysql   0/1     1            0           12s
 
 NAME                         READY   STATUS              RESTARTS   AGE
 pod/mysql-68bc9bf65d-68c76   0/1     ContainerCreating   0          12s
-(jegan@tektutor.org)$ oc get po -w
+(jegan@tektutor.org)$ <b>oc get po -w</b>
 NAME                     READY   STATUS              RESTARTS   AGE
 mysql-68bc9bf65d-68c76   0/1     ContainerCreating   0          20s
 mysql-68bc9bf65d-68c76   0/1     Error               0          27s
-^C(jegan@tektutor.org)$ oc logs mysql-68bc9bf65d-68c76
+^C(jegan@tektutor.org)$ <b>oc logs mysql-68bc9bf65d-68c76</b>
 mysql 05:10:06.25 
 mysql 05:10:06.25 Welcome to the Bitnami mysql container
 mysql 05:10:06.26 Subscribe to project updates by watching https://github.com/bitnami/containers
@@ -84,13 +84,13 @@ mysql 05:10:06.26
 mysql 05:10:06.27 INFO  ==> ** Starting MySQL setup **
 mysql 05:10:06.30 INFO  ==> Validating settings in MYSQL_*/MARIADB_* env vars
 mysql 05:10:06.31 ERROR ==> The MYSQL_ROOT_PASSWORD environment variable is empty or not set. Set the environment variable ALLOW_EMPTY_PASSWORD=yes to allow the container to be started with blank passwords. This is recommended only for development.
-(jegan@tektutor.org)$ oc set env deploy/mysql MYSQL_ROOT_PASSWORD=root
+(jegan@tektutor.org)$ <b>oc set env deploy/mysql MYSQL_ROOT_PASSWORD=root</b>
 deployment.apps/mysql updated
-(jegan@tektutor.org)$ oc get po -w
+(jegan@tektutor.org)$ <b>oc get po -w</b>
 NAME                     READY   STATUS              RESTARTS      AGE
 mysql-68bc9bf65d-68c76   0/1     Error               3 (37s ago)   89s
 mysql-98798fb95-bgcph    0/1     ContainerCreating   0             3s
-mysql-98798fb95-bgcph    1/1     Running             0             6s
+<b>mysql-98798fb95-bgcph    1/1     Running             0             6s</b>
 mysql-68bc9bf65d-68c76   0/1     Terminating         3 (40s ago)   92s
 mysql-68bc9bf65d-68c76   0/1     Terminating         3             92s
 mysql-68bc9bf65d-68c76   0/1     Terminating         3             93s
