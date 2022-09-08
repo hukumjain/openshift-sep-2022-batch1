@@ -96,3 +96,81 @@ mysql-68bc9bf65d-68c76   0/1     Terminating         3             92s
 mysql-68bc9bf65d-68c76   0/1     Terminating         3             93s
 mysql-68bc9bf65d-68c76   0/1     Terminating         3             93s
 </pre>
+
+
+## Lab - Creating database, table and inserting records into Pod storage
+
+When prompts for password, you need to type the password you passed via the environment variable MYSQL_ROOT_PASSWORD. In my case, my password is 'root' without quotes.
+
+```
+oc rsh deploy/mysql
+
+mysql -u root -p
+
+SHOW DATABASES;
+
+CREATE DATABASE tektutor;
+USE tektutor;
+CREATE TABLE training ( id INT, name VARCHAR(50), duration VARCHAR(50) );
+
+INSERT INTO training VALUES ( 1, "Machine Learning with Python", "5 Days" );
+INSERT INTO training VALUES ( 2, "Game Programing with QML" , "5 Days" );
+
+SELECT * FROM training;
+```
+
+Expected output
+<pre>
+(jegan@tektutor.org)$ <b>oc rsh deploy/mysql</b>
+$ <b>mysql -u root -p</b>
+Enter password: 
+Welcome to the MySQL monitor.  Commands end with ; or \g.
+Your MySQL connection id is 9
+Server version: 8.0.30 Source distribution
+
+Copyright (c) 2000, 2022, Oracle and/or its affiliates.
+
+Oracle is a registered trademark of Oracle Corporation and/or its
+affiliates. Other names may be trademarks of their respective
+owners.
+
+Type 'help;' or '\h' for help. Type '\c' to clear the current input statement.
+
+mysql> <b>SHOW DATABASES;</b>
++--------------------+
+| Database           |
++--------------------+
+| information_schema |
+| mysql              |
+| performance_schema |
+| sys                |
++--------------------+
+4 rows in set (0.00 sec)
+
+mysql> <b>CREATE DATABASE tektutor;</b>
+Query OK, 1 row affected (0.00 sec)
+
+mysql> <b>USE tektutor;</b>
+Database changed
+mysql> <b>CREATE TABLE training ( id INT, name VARCHAR(50), duration VARCHAR(50) );</b>
+Query OK, 0 rows affected (0.04 sec)
+
+mysql> <b>INSERT INTO training VALUES ( 1, "DevOps", "5 Days" );</b>
+Query OK, 1 row affected (0.02 sec)
+
+mysql> <b>INSERT INTO training VALUES ( 2, "Datastructures and Algorithms", "5 Days" );</b>
+Query OK, 1 row affected (0.00 sec)
+
+mysql> <b>SELECT * FROM training;</b>
++------+-------------------------------+----------+
+| id   | name                          | duration |
++------+-------------------------------+----------+
+|    1 | DevOps                        | 5 Days   |
+|    2 | Datastructures and Algorithms | 5 Days   |
++------+-------------------------------+----------+
+2 rows in set (0.00 sec)
+
+mysql> <b>exit</b>
+Bye
+$ <b>exit</b>
+</pre>
