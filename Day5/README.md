@@ -180,12 +180,14 @@ image.image.openshift.io "sha256:684ec0954fe19624b9cbe9bd4ae95d68a8325593cfb78eb
 
 First we need to create the template in our OpenShift cluster
 ```
+oc delete project jegan
+oc new-project jegan
+
 cd ~/openshift-sep-2022-batch1
 git pull
 
 cd Day5/templates
 oc apply -f nginx-template.yml
-
 ```
 
 Expected output
@@ -215,4 +217,28 @@ Expected output
 --> Success
     Access your application via route 'nginx-jegan.apps.ocp.tektutor.org' 
     Run 'oc status' to view your app.
+</pre>
+
+List and see all the resources created by our template
+```
+oc get all
+```
+
+Expected output
+<pre>
+(jegan@tektutor.org)$ oc get all
+NAME                        READY   STATUS    RESTARTS   AGE
+pod/nginx-68d84d67b-sw9wv   1/1     Running   0          116s
+
+NAME            TYPE        CLUSTER-IP     EXTERNAL-IP   PORT(S)    AGE
+service/nginx   ClusterIP   172.30.20.45   <none>        8080/TCP   116s
+
+NAME                    READY   UP-TO-DATE   AVAILABLE   AGE
+deployment.apps/nginx   1/1     1            1           116s
+
+NAME                              DESIRED   CURRENT   READY   AGE
+replicaset.apps/nginx-68d84d67b   1         1         1       116s
+
+NAME                             HOST/PORT                           PATH   SERVICES   PORT   TERMINATION   WILDCARD
+route.route.openshift.io/nginx   nginx-jegan.apps.ocp.tektutor.org          nginx      8080                 None
 </pre>
