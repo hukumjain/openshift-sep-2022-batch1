@@ -197,5 +197,12 @@ oc apply -f mysql-service.yml
 
 Expected output
 <pre>
-
+(jegan@tektutor.org)$ <b>pwd</b>
+/home/jegan/openshift-sep-2022-batch1/Day4/declarative-manifests/lab1
+(jegan@tektutor.org)$ <b>ls</b>
+mysql-deploy.yml  mysql-route.yml  mysql-service.yml
+(jegan@tektutor.org)$ <b>oc apply -f mysql-deploy.yml</b>
+deployment.apps/mysql created
+(jegan@tektutor.org)$ <b>oc apply -f mysql-service.yml</b>
+service/mysql created
 </pre>
