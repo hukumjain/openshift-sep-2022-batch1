@@ -55,7 +55,7 @@ Expected output
 (jegan@tektutor.org)$ <b>oc logs -f buildconfig/hello</b>
 </pre>
 
-## ⛹️‍♀️ Lab - Deploying mysql database 
+## ⛹️‍♀️ Lab - Deploying mysql database server into OpenShift cluster
 ```
 oc create deployment mysql --image=bitnami/mysql:latest
 oc set env deploy/mysql MYSQL_ROOT_PASSWORD=root
