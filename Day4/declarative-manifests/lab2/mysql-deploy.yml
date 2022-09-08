@@ -5,7 +5,7 @@ metadata:
     app: mysql
   name: mysql
 spec:
-  replicas: 3
+  replicas: 1
   selector:
     matchLabels:
       app: mysql
@@ -20,3 +20,10 @@ spec:
         env:
         - name: MYSQL_ROOT_PASSWORD
           value: root@123
+        volumeMounts:
+        - name: mysql-external-storage 
+          mountPath: "/bitnami/mysql/data"
+      volumes:
+      - name: mysql-external-storage
+        persistentVolumeClaim: 
+          claimName: mysql-pvc-jegan #Replace 'jegan' with your name
