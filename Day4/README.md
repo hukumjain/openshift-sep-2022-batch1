@@ -191,7 +191,7 @@ git pull
 
 cd Day4/declarative-manifests/lab1
 
-oc apply -f mysql-deployment
+oc apply -f mysql-deployment.yml
 oc apply -f mysql-service.yml
 ```
 
