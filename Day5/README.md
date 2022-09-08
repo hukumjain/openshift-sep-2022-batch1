@@ -177,16 +177,42 @@ image.image.openshift.io "sha256:684ec0954fe19624b9cbe9bd4ae95d68a8325593cfb78eb
 </pre>
 
 ## ⛹️‍♀️ Lab - Deploying application as a template
+
+First we need to create the template in our OpenShift cluster
 ```
 cd ~/openshift-sep-2022-batch1
 git pull
 
 cd Day5/templates
 oc apply -f nginx-template.yml
+
 ```
 
 Expected output
 <pre>
 (jegan@tektutor.org)$ <b>oc apply -f nginx-template.yml</b>
 template.template.openshift.io/tektutor-nginx-template created
+</pre>
+
+Let's deploy nginx from our custom template
+```
+oc new-app tektutor-nginx-template
+```
+
+Expected output
+<pre>
+(jegan@tektutor.org)$ <b>oc new-app tektutor-nginx-template</b>
+--> Deploying template "jegan/tektutor-nginx-template" to project jegan
+
+     TekTutor nginx deployment
+     ---------
+     TekTutor nginx deployment 
+
+--> Creating resources ...
+    deployment.apps "nginx" created
+    service "nginx" created
+    route.route.openshift.io "nginx" created
+--> Success
+    Access your application via route 'nginx-jegan.apps.ocp.tektutor.org' 
+    Run 'oc status' to view your app.
 </pre>
