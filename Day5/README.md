@@ -166,3 +166,12 @@ oc get images| grep image-registry.openshift-image-registry.svc:5000 | grep tekt
 
 oc delete image sha256:22f454e8a66f899723017653de4e2d182ef0142ba26ac60d472e48eae7dda58b
 ```
+Expected output
+<pre>
+oc get images| grep image-registry.openshift-image-registry.svc:5000 | grep tektutor-spring-hello
+sha256:684ec0954fe19624b9cbe9bd4ae95d68a8325593cfb78ebedc591cc90eb1f22a   image-registry.openshift-image-registry.svc:5000/jegan/tektutor-spring-hello@sha256:684ec0954fe19624b9cbe9bd4ae95d68a8325593cfb78ebedc591cc90eb1f22a
+sha256:8a2ac9c01b3623370471016f6f606b614d884e0de8f9f08ce188eefc762fdcd3   image-registry.openshift-image-registry.svc:5000/jegan/tektutor-spring-hello@sha256:8a2ac9c01b3623370471016f6f606b614d884e0de8f9f08ce188eefc762fdcd3
+
+(jegan@tektutor.org)$ oc delete image sha256:684ec0954fe19624b9cbe9bd4ae95d68a8325593cfb78ebedc591cc90eb1f22a
+image.image.openshift.io "sha256:684ec0954fe19624b9cbe9bd4ae95d68a8325593cfb78ebedc591cc90eb1f22a" deleted
+</pre>
