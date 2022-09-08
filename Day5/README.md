@@ -159,3 +159,10 @@ Storing signatures
 Successfully pushed image-registry.openshift-image-registry.svc:5000/jegan/tektutor-spring-hello@sha256:8a2ac9c01b3623370471016f6f606b614d884e0de8f9f08ce188eefc762fdcd3
 Push successful
 </pre>
+
+## ⛹️‍♀️ Lab - Deleting an image from OpenShift container registry
+```
+oc get images| grep image-registry.openshift-image-registry.svc:5000 | grep tektutor-spring-hello
+
+oc delete image sha256:22f454e8a66f899723017653de4e2d182ef0142ba26ac60d472e48eae7dda58b
+```
