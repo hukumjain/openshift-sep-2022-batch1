@@ -174,3 +174,76 @@ mysql> <b>exit</b>
 Bye
 $ <b>exit</b>
 </pre>
+
+
+
+## Deploying mysql db server in declarative style using manifest(yaml) file
+
+### Delete any existing mysql deployment
+```
+oc delete deploy/mysql
+```
+
+Let's deploy mysql db server declaratively now
+```
+cd ~/openshift-sep-2022-batch1
+git pull
+
+cd Day4/declarative-manifests/lab1
+
+oc apply -f mysql-deployment.yml
+oc apply -f mysql-service.yml
+```
+
+Expected output
+<pre>
+(jegan@tektutor.org)$ <b>pwd</b>
+/home/jegan/openshift-sep-2022-batch1/Day4/declarative-manifests/lab1
+(jegan@tektutor.org)$ <b>ls</b>
+mysql-deploy.yml  mysql-route.yml  mysql-service.yml
+(jegan@tektutor.org)$ <b>oc apply -f mysql-deploy.yml</b>
+deployment.apps/mysql created
+(jegan@tektutor.org)$ <b>oc apply -f mysql-service.yml</b>
+service/mysql created
+</pre>
+
+## Deleting mysql deployment in declarative sytle
+```
+cd ~/openshift-sep-2022-batch1
+git pull
+cd Day4/declarative-manifests/lab1
+
+oc delete -f mysql-deploy.yml
+oc delete -f mysql-service.yml
+```
+
+## ⛹️‍♀️ Lab - Deploying mysql database server into OpenShift cluster with Persistent Volume
+```
+cd ~/openshift-sep-2022-batch1
+git pull
+cd Day4/declarative-manifests/lab2
+
+oc apply -f mysql-pv.yml
+oc apply -f mysql-pvc.yml
+oc apply -f mysql-deploy.yml
+```
+
+Expected output
+<pre>
+(jegan@tektutor.org)$ oc get all
+No resources found in jegan namespace.
+(jegan@tektutor.org)$ ls
+mysql-deploy.yml  mysql-pvc.yml  mysql-pv.yml  mysql-route.yml  mysql-service.yml
+(jegan@tektutor.org)$ <boc apply -f mysql-pv.yml</b>
+persistentvolume/mysql-pv-jegan created
+(jegan@tektutor.org)$ <b>oc apply -f mysql-pvc.yml</b>
+persistentvolumeclaim/mysql-pvc-jegan created
+(jegan@tektutor.org)$ <b>oc apply -f mysql-deploy.yml</b>
+deployment.apps/mysql created
+(jegan@tektutor.org)$ oc get po -w
+NAME                     READY   STATUS              RESTARTS   AGE
+mysql-56b5b97485-qmdk6   0/1     ContainerCreating   0          4s
+mysql-56b5b97485-qmdk6   1/1     Running             0          7s
+
+</pre>
+
