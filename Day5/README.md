@@ -1,6 +1,6 @@
 # Day 5
 
-## Using multi-stage Dockerfile to build and deploy your application from source code from GitHub repo
+## ⛹️‍♀️ Lab - Using multi-stage Dockerfile to build and deploy your application from source code from GitHub repo
 ```
 oc new-app --name hello https://github.com/tektutor/openshift-sep-2022-batch1.git#main --context-dir=Day5/multi-stage-dockerfile --strategy=docker
 ```
@@ -39,7 +39,7 @@ Expected output
 
 Let's first create the ImageStream resource
 ```
-cd ~/openshift-aug-2022
+cd ~/openshift-sep-2022-batch1
 git pull
 
 cd Day5/ImageStreamAndBuildConfig
