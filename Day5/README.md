@@ -647,6 +647,25 @@ make install run
 
 Expected output is
 <pre>
+(jegan@tektutor.org)$ make install run
+/home/jegan/openshift-sep-2022-batch1/Day5/custom-operator/bin/kustomize build config/crd | kubectl apply -f -
+customresourcedefinition.apiextensions.k8s.io/nginxes.training.tektutor.org created
+ANSIBLE_ROLES_PATH=":/home/jegan/openshift-sep-2022-batch1/Day5/custom-operator/roles" /home/jegan/openshift-sep-2022-batch1/Day5/custom-operator/bin/ansible-operator run
+{"level":"info","ts":1662687185.1243496,"logger":"cmd","msg":"Version","Go Version":"go1.16.13","GOOS":"linux","GOARCH":"amd64","ansible-operator":"v1.16.0","commit":"560044140c4f3d88677e4ef2872931f5bb97f255"}
+{"level":"info","ts":1662687185.131158,"logger":"cmd","msg":"Watch namespaces not configured by environment variable WATCH_NAMESPACE or file. Watching all namespaces.","Namespace":""}
+I0909 07:03:06.180909   41532 request.go:665] Waited for 1.02724034s due to client-side throttling, not priority and fairness, request: GET:https://api.ocp.tektutor.org:6443/apis/broker.amq.io/v2alpha1?timeout=32s
+{"level":"info","ts":1662687188.2385342,"logger":"controller-runtime.metrics","msg":"metrics server is starting to listen","addr":":8080"}
+{"level":"info","ts":1662687188.2393627,"logger":"watches","msg":"Environment variable not set; using default value","envVar":"ANSIBLE_VERBOSITY_NGINX_TRAINING_TEKTUTOR_ORG","default":2}
+{"level":"info","ts":1662687188.2394738,"logger":"cmd","msg":"Environment variable not set; using default value","Namespace":"","envVar":"ANSIBLE_DEBUG_LOGS","ANSIBLE_DEBUG_LOGS":false}
+{"level":"info","ts":1662687188.2395034,"logger":"ansible-controller","msg":"Watching resource","Options.Group":"training.tektutor.org","Options.Version":"v1","Options.Kind":"Nginx"}
+{"level":"info","ts":1662687188.2409487,"logger":"proxy","msg":"Starting to serve","Address":"127.0.0.1:8888"}
+{"level":"info","ts":1662687188.2414124,"msg":"starting metrics server","path":"/metrics"}
+{"level":"info","ts":1662687188.2415314,"logger":"controller.nginx-controller","msg":"Starting EventSource","source":"kind source: training.tektutor.org/v1, Kind=Nginx"}
+{"level":"info","ts":1662687188.2416382,"logger":"controller.nginx-controller","msg":"Starting Controller"}
+{"level":"info","ts":1662687188.3431869,"logger":"controller.nginx-controller","msg":"Starting workers","worker count":48}
+^C{"level":"info","ts":1662687235.360815,"logger":"controller.nginx-controller","msg":"Shutdown signal received, waiting for all workers to finish"}
+{"level":"info","ts":1662687235.3614314,"logger":"controller.nginx-controller","msg":"All workers finished"}
+{"level":"info","ts":1662687235.3616073,"logger":"cmd","msg":"Exiting.","Namespace":""}
 </pre>
 
 ## You need to login to your redhat account to authorize downloading redhat container images
