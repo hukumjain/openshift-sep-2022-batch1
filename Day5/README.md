@@ -43,7 +43,7 @@ Expected output
 </pre>
 
 
-## ⛹️‍♀️ Lab - Creating a Building with an docker image output
+## ⛹️‍♀️ Lab - Build and Create an ImageStream 
 
 Let's first create the ImageStream resource
 ```
