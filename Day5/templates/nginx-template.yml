@@ -1,0 +1,56 @@
+apiVersion: template.openshift.io/v1
+kind: Template
+metadata:
+  name: tektutor-nginx-template
+  annotations:
+    openshift.io/display-name: "TekTutor nginx deployment"
+    description: >-
+      TekTutor nginx deployment 
+    tags: "quickstart,webserver"
+    iconClass: icon-redhat
+objects:
+- apiVersion: apps/v1
+  kind: Deployment
+  metadata:
+    labels:
+      app: nginx
+    name: nginx
+  spec:
+    replicas: 1
+    selector:
+      matchLabels:
+        app: nginx
+    template:
+      metadata:
+        labels:
+          app: nginx
+      spec:
+        containers:
+        - image: bitnami/nginx:latest
+          name: nginx
+- apiVersion: v1
+  kind: Service
+  metadata:
+    labels:
+      app: nginx
+    name: nginx
+  spec:
+    ports:
+    - port: 8080
+      protocol: TCP
+      targetPort: 8080
+    selector:
+      app: nginx
+- apiVersion: route.openshift.io/v1
+  kind: Route
+  metadata:
+    labels:
+      app: nginx
+    name: nginx
+  spec:
+    port:
+      targetPort: 8080
+    to:
+      kind: ""
+      name: nginx
+      weight: null
