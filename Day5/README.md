@@ -245,7 +245,7 @@ route.route.openshift.io/nginx   nginx-jegan.apps.ocp.tektutor.org          ngin
 
 # 🦌 Demo - Install Operator SDK to develop your own Custom Operators
 
-## What is Kubernetes Operators?
+## What are Kubernetes/OpenShift Operators?
 - is a way to extend a Kubernetes/OpenShift API
 - via operator you can add your own Custom Resources in Kubernetes/OpenShift cluster
 - to manage the Custom Resources we also need to provide Custom Controllers
@@ -259,20 +259,20 @@ route.route.openshift.io/nginx   nginx-jegan.apps.ocp.tektutor.org          ngin
   OpenShift.  RedHat supports the certified operators.
 - Community market place has opensource ready to deploy operators but for which you may/may not get suport.
 
-## What is Operator Lifecycle Manager(OLM)?
+## What is an Operator Lifecycle Manager(OLM)?
 - Operator Lifecycle Manage(OLM) is an also an Operator which comes pre-installed
 - OLM simplifies installation of other Operators
 - OLM integrates Operator Hub within OpenShift web console
 - OLM enables installation/uninstallation of operators via the exiting oc/kubectl cli tool
 
-## openshift-operator
+## OpenShift Operator SDK 
 
 For detailed official documentation, you may check here 
 <pre>
 https://docs.openshift.com/container-platform/4.10/operators/operator_sdk/ansible/osdk-ansible-tutorial.html
 </pre>
 
-## Installing Go Programming Language
+### Installing Go Programming Language
 
 This url has Go version specific binaries https://go.dev/dl
 ```
@@ -302,7 +302,7 @@ The expected output is
 go version go1.18.2 linux/amd64
 </pre>
 
-## Install OpenShift Operator SDK
+### Install OpenShift Operator SDK
 
 This url has OpenShift version specific Operator SDK binary https://mirror.openshift.com/pub/openshift-v4/x86_64/clients/operator-sdk
 
@@ -325,7 +325,7 @@ The expected output is
 operator-sdk version: "v1.16.0-ocp", commit: "28da5f640cef1a81d91f156b74b50344fbe84121", kubernetes version: "v1.22", go version: "go1.17.5", GOOS: "linux", GOARCH: "amd64"
 </pre>
 
-## Install Docker Community Edition
+### Install Docker Community Edition
 ```
 sudo yum install -y yum-utils
 sudo yum-config-manager --add-repo https://download.docker.com/linux/centos/docker-ce.repo
@@ -355,7 +355,7 @@ Docker version 20.10.7, build 20.10.7-0ubuntu5~18.04.3
 REPOSITORY                                           TAG                           IMAGE ID       CREATED        SIZE
 </pre>
 
-## Install Ansible in CentOS 7.x
+### Install Ansible in CentOS 7.x
 Make sure you first upgrade your pip
 ```
 python3 -m pip install --upgrade pip
@@ -426,7 +426,7 @@ ansible 2.9.27
   python version = 2.7.17 (default, Mar 18 2022, 13:21:42) [GCC 7.5.0]
 </pre>
 
-## Install Ansible Runner
+### Install Ansible Runner
 For detailed instructions, you may check here https://ansible-runner.readthedocs.io/en/latest/install/
 ```
 pip install ansible-runner
@@ -472,12 +472,12 @@ Installing collected packages: ptyprocess, pexpect, pyparsing, packaging, docuti
 Successfully installed ansible-runner-2.2.0 docutils-0.18.1 lockfile-0.12.2 packaging-20.9 pexpect-4.8.0 ptyprocess-0.7.0 pyparsing-2.4.7 python-daemon-2.3.0 pyyaml-5.4.1 setuptools-44.1.1 six-1.16.0
 </pre>
 
-## Installing Ansible Http Event Emitter
+### Installing Ansible Http Event Emitter
 ```
 pip install ansible-runner-http
 ```
 
-## Installing OpenShift python client
+### Installing OpenShift python client
 ```
 pip install openshift
 ```
