@@ -1,5 +1,10 @@
 # Day 5
 
+## My medium blog on Tekton
+<pre>
+https://medium.com/tektutor/openshift-ci-cd-with-tekton-faa88ba45656
+</pre>
+
 ## Delete the project and all deployments in it
 
 Replace 'jegan' with your project name below.
