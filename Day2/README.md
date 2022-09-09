@@ -31,7 +31,7 @@ total 207180
 
 ### Let's start the CRC installation
 ```
-crc start
+crc setup
 ```
 
 Expected output
