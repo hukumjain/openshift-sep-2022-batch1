@@ -243,9 +243,9 @@ NAME                             HOST/PORT                           PATH   SERV
 route.route.openshift.io/nginx   nginx-jegan.apps.ocp.tektutor.org          nginx      8080                 None
 </pre>
 
-## Install Operator SDK to develop your own Custom Operators
+# Install Operator SDK to develop your own Custom Operators
 
-# What is Kubernetes Operators?
+## What is Kubernetes Operators?
 - is a way to extend a Kubernetes/OpenShift API
 - via operator you can add your own Custom Resources in Kubernetes/OpenShift cluster
 - to manage the Custom Resources we also need to provide Custom Controllers
@@ -265,7 +265,7 @@ route.route.openshift.io/nginx   nginx-jegan.apps.ocp.tektutor.org          ngin
 - OLM integrates Operator Hub within OpenShift web console
 - OLM enables installation/uninstallation of operators via the exiting oc/kubectl cli tool
 
-# openshift-operator
+## openshift-operator
 
 For detailed official documentation, you may check here 
 <pre>
@@ -353,30 +353,6 @@ Docker version 20.10.7, build 20.10.7-0ubuntu5~18.04.3
 
 (jegan@tektutor.org)$ <b>docker images</b>
 REPOSITORY                                           TAG                           IMAGE ID       CREATED        SIZE
-</pre>
-
-## Install podman
-
-You may check the official documentation here https://podman.io/getting-started/installation
-
-```
-sudo yum install -y epel-release
-sudo yum -y install podman
-```
-
-Check the version of podman
-```
-podman version
-```
-
-The expected output is
-<pre>
-(jegan@tektutor.org)$ <b>podman version</b>
-Version:      3.0.1
-API Version:  3.0.0
-Go Version:   go1.15.2
-Built:        Thu Jan  1 05:30:00 1970
-OS/Arch:      linux/amd64
 </pre>
 
 ## Install Ansible in CentOS 7.x
@@ -503,11 +479,12 @@ pip install ansible-runner-http
 
 ## Installing OpenShift python client
 ```
+pip install openshift
 ```
 
 Expected output is
 <pre>
-(jegan@tektutor.org)$ pip install openshift
+(jegan@tektutor.org)$ <b>pip install openshift</b>
 Collecting openshift
   Downloading https://files.pythonhosted.org/packages/97/c0/d8e2aae7b4e8f3709eca4fd8c2f70ea3c66151d1a5259e9a7e1ee2497608/openshift-0.13.1.tar.gz
 Collecting kubernetes>=12.0 (from openshift)
