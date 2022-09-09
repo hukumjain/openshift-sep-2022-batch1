@@ -691,6 +691,43 @@ Login Succeeded
 make docker-build IMG=tektutor/nginx-openshift-operator:1.0 
 ```
 
+Expected output
+<pre>
+(jegan@tektutor.org)$ <b>make docker-build IMG=tektutor/nginx-openshift-operator:1.0</b>
+docker build -t tektutor/nginx-openshift-operator:1.0 .
+Sending build context to Docker daemon  85.69MB
+Step 1/6 : FROM registry.redhat.io/openshift4/ose-ansible-operator:v4.10
+ ---> f4f5e47f0f23
+Step 2/6 : COPY requirements.yml ${HOME}/requirements.yml
+ ---> Using cache
+ ---> 1a872f2bf218
+Step 3/6 : RUN ansible-galaxy collection install -r ${HOME}/requirements.yml  && chmod -R ug+rwx ${HOME}/.ansible
+ ---> Running in a82317acbf83
+Process install dependency map
+ERROR! Cannot meet requirement operator_sdk.util:0.3.1 as it is already installed at version '0.4.0'. Use --force to overwrite
+The command '/bin/sh -c ansible-galaxy collection install -r ${HOME}/requirements.yml  && chmod -R ug+rwx ${HOME}/.ansible' returned a non-zero code: 1
+Makefile:80: recipe for target 'docker-build' failed
+make: *** [docker-build] Error 1
+(jegan@tektutor.org)$ <b>ls</b>
+bin  config  Dockerfile  Makefile  molecule  playbooks  PROJECT  requirements.yml  roles  watches.yaml
+(jegan@tektutor.org)$ <b>vim requirements.yml</b>
+(jegan@tektutor.org)$ <b>make docker-build IMG=tektutor/nginx-openshift-operator:1.0</b>
+docker build -t tektutor/nginx-openshift-operator:1.0 .
+Sending build context to Docker daemon  85.69MB
+Step 1/6 : FROM registry.redhat.io/openshift4/ose-ansible-operator:v4.10
+ ---> f4f5e47f0f23
+Step 2/6 : COPY requirements.yml ${HOME}/requirements.yml
+ ---> Using cache
+ ---> 13bfdc35caad
+Step 3/6 : RUN ansible-galaxy collection install -r ${HOME}/requirements.yml  && chmod -R ug+rwx ${HOME}/.ansible
+ ---> Running in ce46dfb61cc6
+Process install dependency map
+ERROR! Cannot meet requirement kubernetes.core:2.2.0 as it is already installed at version '2.2.3'. Use --force to overwrite
+The command '/bin/sh -c ansible-galaxy collection install -r ${HOME}/requirements.yml  && chmod -R ug+rwx ${HOME}/.ansible' returned a non-zero code: 1
+Makefile:80: recipe for target 'docker-build' failed
+make: *** [docker-build] Error 1
+</pre>
+
 ## Troubleshooting version conflicts
 You may get this kind of version conflict errors while building your operator image.
 
@@ -709,7 +746,7 @@ make docker-build IMG=tektutor/nginx-operator:1.0
 Expected ouptut is
 
 <pre>
-(jegan@tektutor.org)$ make docker-build IMG=tektutor/nginx-openshift-operator:1.0 
+(jegan@tektutor.org)$ <b>make docker-build IMG=tektutor/nginx-openshift-operator:1.0</b>
 docker build -t tektutor/nginx-openshift-operator:1.0 .
 Sending build context to Docker daemon  85.69MB
 Step 1/6 : FROM registry.redhat.io/openshift4/ose-ansible-operator:v4.10
