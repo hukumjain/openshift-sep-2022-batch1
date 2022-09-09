@@ -631,13 +631,13 @@ spec:
 
 We need to edit as shown below
 <pre>
-(jegan@tektutor.org)$ cat config/samples/cache_v1_nginx.yaml
-apiVersion: tektutor.org/v1
+(jegan@tektutor.org)$ cat config/samples/training_v1_nginx.yaml
+apiVersion: training.tektutor.org/v1
 kind: Nginx
 metadata:
-  name: nginx
+  name: nginx-sample
 spec:
-  size: 3
+  # TODO(user): Add fields here
 </pre>
 
 ## Let's run the operator on your local system as a Go program
