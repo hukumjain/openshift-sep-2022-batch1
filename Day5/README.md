@@ -1,6 +1,8 @@
 # Day 5
 
 ## Delete the project and all deployments in it
+
+Replace 'jegan' with your project name below.
 ```
 oc delete project jegan
 oc new-project jegan
