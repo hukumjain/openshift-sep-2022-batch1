@@ -243,7 +243,7 @@ NAME                             HOST/PORT                           PATH   SERV
 route.route.openshift.io/nginx   nginx-jegan.apps.ocp.tektutor.org          nginx      8080                 None
 </pre>
 
-# Install Operator SDK to develop your own Custom Operators
+# 🦌 Demo - Install Operator SDK to develop your own Custom Operators
 
 ## What is Kubernetes Operators?
 - is a way to extend a Kubernetes/OpenShift API
