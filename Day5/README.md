@@ -787,12 +787,13 @@ Login Succeeded
 In my case I already created a tektutor/nginx-openshift-operator public repository in my Docker Hub account.
 
 ```
+docker tag tektutor/nginx-openshift-operator:1.0 tektutor/nginx-openshift-operator:latest
 docker push tektutor/nginx-openshift-operator:1.0
 ```
 
 Expected output is
 <pre>
-(jegan@tektutor.org)$ docker push tektutor/nginx-openshift-operator:1.0
+(jegan@tektutor.org)$ docker push tektutor/nginx-openshift-operator:latest
 The push refers to repository [docker.io/tektutor/nginx-openshift-operator]
 4576a3bb6b7d: Pushed 
 ca6f90265dcb: Pushed 
@@ -839,7 +840,29 @@ oc get deploy -n custom-operator-system
 
 Expected output is
 <pre>
-(jegan@tektutor.org)$ <b>oc get deploy -n custom-operator-system</b>
+(jegan@tektutor.org)$ oc get deploy -n custom-operator-system
 NAME                                 READY   UP-TO-DATE   AVAILABLE   AGE
-custom-operator-controller-manager   0/1     1            0           95s
+custom-operator-controller-manager   1/1     1            1           10m
+</pre>
+
+## Create the custom Nginx resource
+```
+cd ~/openshift-sep-2022-batch1
+git pull
+
+cd Day5/custom-operator/config
+oc apply -f samples/training_v1_nginx.yaml 
+```
+
+Expected output
+<pre>
+jegan@tektutor.org)$ <b>oc apply -f samples/training_v1_nginx.yaml</b>
+nginx.training.tektutor.org/nginx-sample created
+(jegan@tektutor.org)$ oc get po -w
+NAME                                  READY   STATUS    RESTARTS   AGE
+nginx-sample-nginx-795ccd5597-c6zzt   0/1     Pending   0          0s
+nginx-sample-nginx-795ccd5597-c6zzt   0/1     Pending   0          0s
+nginx-sample-nginx-795ccd5597-c6zzt   0/1     ContainerCreating   0          1s
+nginx-sample-nginx-795ccd5597-c6zzt   0/1     ContainerCreating   0          2s
+nginx-sample-nginx-795ccd5597-c6zzt   1/1     Running             0          6s
 </pre>
