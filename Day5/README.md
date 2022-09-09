@@ -11,6 +11,8 @@ oc new-project jegan
 ## ⛹️‍♀️ Lab - Using multi-stage Dockerfile to build and deploy your application from source code from GitHub repo
 ```
 oc new-app --name hello https://github.com/tektutor/openshift-sep-2022-batch1.git#main --context-dir=Day5/multi-stage-dockerfile --strategy=docker
+
+oc expose svc/hello
 ```
 
 Expected output
