@@ -1,0 +1,8 @@
+apiVersion: tektutor.org/v1
+kind: Book 
+metadata:
+  name: master-cpp-programming 
+spec:
+  training: "Mastering C++ Programming"
+  author: "Jeganathan Swaminathan"
+  publisher: "Packt Publication"

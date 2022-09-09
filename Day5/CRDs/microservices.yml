@@ -1,0 +1,8 @@
+apiVersion: tektutor.org/v1
+kind: Book 
+metadata:
+  name: building-microservices 
+spec:
+  training: "Building Microservices"
+  author: "Sam Newman"
+  publisher: "Orielly Publication"
