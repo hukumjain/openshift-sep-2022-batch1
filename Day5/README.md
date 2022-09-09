@@ -709,6 +709,25 @@ make docker-build IMG=tektutor/nginx-operator:1.0
 Expected ouptut is
 
 <pre>
+(jegan@tektutor.org)$ make docker-build IMG=tektutor/nginx-openshift-operator:1.0 
+docker build -t tektutor/nginx-openshift-operator:1.0 .
+Sending build context to Docker daemon  85.69MB
+Step 1/6 : FROM registry.redhat.io/openshift4/ose-ansible-operator:v4.10
+ ---> f4f5e47f0f23
+Step 2/6 : COPY requirements.yml ${HOME}/requirements.yml
+ ---> Using cache
+ ---> e022b262f13f
+Step 3/6 : RUN ansible-galaxy collection install -r ${HOME}/requirements.yml  && chmod -R ug+rwx ${HOME}/.ansible
+ ---> Using cache
+ ---> 94a6737f891d
+Step 4/6 : COPY watches.yaml ${HOME}/watches.yaml
+ ---> 1b4548d418ac
+Step 5/6 : COPY roles/ ${HOME}/roles/
+ ---> cb26296f92e5
+Step 6/6 : COPY playbooks/ ${HOME}/playbooks/
+ ---> 75a0584ad048
+Successfully built 75a0584ad048
+Successfully tagged tektutor/nginx-openshift-operator:1.0
 </pre>
 
 ## Login to your Docker Hub account
@@ -745,25 +764,6 @@ make deploy IMG=tektutor/nginx-operator:1.0
 
 Expected output is
 <pre>
-(jegan@tektutor.org)$ make docker-build IMG=tektutor/nginx-openshift-operator:1.0 
-docker build -t tektutor/nginx-openshift-operator:1.0 .
-Sending build context to Docker daemon  85.69MB
-Step 1/6 : FROM registry.redhat.io/openshift4/ose-ansible-operator:v4.10
- ---> f4f5e47f0f23
-Step 2/6 : COPY requirements.yml ${HOME}/requirements.yml
- ---> Using cache
- ---> e022b262f13f
-Step 3/6 : RUN ansible-galaxy collection install -r ${HOME}/requirements.yml  && chmod -R ug+rwx ${HOME}/.ansible
- ---> Using cache
- ---> 94a6737f891d
-Step 4/6 : COPY watches.yaml ${HOME}/watches.yaml
- ---> 1b4548d418ac
-Step 5/6 : COPY roles/ ${HOME}/roles/
- ---> cb26296f92e5
-Step 6/6 : COPY playbooks/ ${HOME}/playbooks/
- ---> 75a0584ad048
-Successfully built 75a0584ad048
-Successfully tagged tektutor/nginx-openshift-operator:1.0
 </pre>
 
 ## Check your deployment in the cluster
