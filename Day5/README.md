@@ -834,9 +834,12 @@ deployment.apps/custom-operator-controller-manager created
 
 ## Check your deployment in the cluster
 ```
-oc get deploy -n nginx-operator-system
+oc get deploy -n custom-operator-system
 ```
 
 Expected output is
 <pre>
+(jegan@tektutor.org)$ <b>oc get deploy -n custom-operator-system</b>
+NAME                                 READY   UP-TO-DATE   AVAILABLE   AGE
+custom-operator-controller-manager   0/1     1            0           95s
 </pre>
