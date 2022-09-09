@@ -91,7 +91,7 @@ Your system is correctly setup for using CRC. Use 'crc start' to start the insta
 
 We need to start the CRC openshift cluster in order to use it
 <pre>
-[jegan@master ~]$ crc setup
+[jegan@master ~]$ crc start
 INFO Using bundle path /home/jegan/.crc/cache/crc_libvirt_4.11.1_amd64.crcbundle 
 INFO Checking if running as non-root              
 INFO Checking if running inside WSL2              
