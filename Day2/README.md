@@ -91,58 +91,7 @@ Your system is correctly setup for using CRC. Use 'crc start' to start the insta
 
 We need to start the CRC openshift cluster in order to use it
 <pre>
-[jegan@master ~]$ crc start
-INFO Using bundle path /home/jegan/.crc/cache/crc_libvirt_4.11.1_amd64.crcbundle 
-INFO Checking if running as non-root              
-INFO Checking if running inside WSL2              
-INFO Checking if crc-admin-helper executable is cached 
-INFO Checking for obsolete admin-helper executable 
-INFO Checking if running on a supported CPU architecture 
-INFO Checking minimum RAM requirements            
-INFO Checking if crc executable symlink exists    
-INFO Checking if Virtualization is enabled        
-INFO Checking if KVM is enabled                   
-INFO Checking if libvirt is installed             
-INFO Installing libvirt service and dependencies  
-INFO Using root access: Installing virtualization packages 
-[sudo] password for jegan: 
-INFO Checking if user is part of libvirt group    
-INFO Adding user to libvirt group                 
-INFO Using root access: Adding user to the libvirt group 
-INFO Checking if active user/process is currently part of the libvirt group 
-INFO Checking if libvirt daemon is running        
-INFO Checking if a supported libvirt version is installed 
-INFO Checking if crc-driver-libvirt is installed  
-INFO Installing crc-driver-libvirt                
-INFO Checking if systemd-networkd is running      
-INFO Checking if NetworkManager is installed      
-INFO Checking if NetworkManager service is running 
-INFO Checking if /etc/NetworkManager/conf.d/crc-nm-dnsmasq.conf exists 
-INFO Writing Network Manager config for crc       
-INFO Using root access: Writing NetworkManager configuration to /etc/NetworkManager/conf.d/crc-nm-dnsmasq.conf 
-INFO Using root access: Changing permissions for /etc/NetworkManager/conf.d/crc-nm-dnsmasq.conf to 644  
-INFO Using root access: Executing systemctl daemon-reload command 
-INFO Using root access: Executing systemctl reload NetworkManager 
-INFO Checking if /etc/NetworkManager/dnsmasq.d/crc.conf exists 
-INFO Writing dnsmasq config for crc               
-INFO Using root access: Writing NetworkManager configuration to /etc/NetworkManager/dnsmasq.d/crc.conf 
-INFO Using root access: Changing permissions for /etc/NetworkManager/dnsmasq.d/crc.conf to 644  
-INFO Using root access: Executing systemctl daemon-reload command 
-INFO Using root access: Executing systemctl reload NetworkManager 
-INFO Checking if libvirt 'crc' network is available 
-INFO Setting up libvirt 'crc' network             
-INFO Checking if libvirt 'crc' network is active  
-INFO Starting libvirt 'crc' network               
-INFO Checking if CRC bundle is extracted in '$HOME/.crc' 
-INFO Checking if /home/jegan/.crc/cache/crc_libvirt_4.11.1_amd64.crcbundle exists 
-INFO Getting bundle for the CRC executable        
-INFO Downloading crc_libvirt_4.11.1_amd64.crcbundle 
-3.23 GiB / 3.23 GiB [------------------------------------------------------------------------------] 100.00% 9.40 MiB p/s
-INFO Uncompressing /home/jegan/.crc/cache/crc_libvirt_4.11.1_amd64.crcbundle 
-crc.qcow2: 12.49 GiB / 12.49 GiB [------------------------------------------------------------------------------] 100.00%
-oc: 118.13 MiB / 118.13 MiB [-----------------------------------------------------------------------------------] 100.00%
-Your system is correctly setup for using CRC. Use 'crc start' to start the instance
-[jegan@master ~]$ crc start
+[jegan@master ~]$ <b>crc start</b>
 INFO Checking if running as non-root              
 INFO Checking if running inside WSL2              
 INFO Checking if crc-admin-helper executable is cached 
