@@ -787,11 +787,24 @@ Login Succeeded
 In my case I already created a tektutor/nginx-openshift-operator public repository in my Docker Hub account.
 
 ```
-docker push tektutor/nginx-operator:1.0
+docker push tektutor/nginx-openshift-operator:1.0
 ```
 
 Expected output is
 <pre>
+(jegan@tektutor.org)$ docker push tektutor/nginx-openshift-operator:1.0
+The push refers to repository [docker.io/tektutor/nginx-openshift-operator]
+4576a3bb6b7d: Pushed 
+ca6f90265dcb: Pushed 
+290296b0830e: Pushed 
+134e709b3ce9: Mounted from tektutor/memcached-openshift-operator 
+2bf80cc44396: Mounted from tektutor/memcached-openshift-operator 
+aac39aeb35c3: Layer already exists 
+0606abea7f87: Layer already exists 
+d96403e3cf8e: Layer already exists 
+e767386b141e: Layer already exists 
+35db14176a6c: Layer already exists 
+1.0: digest: sha256:4948dcbffcaad123235cf75039a8996448a1148cae52874683bd2ca04d75022d size: 2412
 </pre>
 
 ## Deploying our nginx-operator into the OpenShift cluster
