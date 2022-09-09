@@ -45,7 +45,7 @@ Expected output
 </pre>
 
 
-## ⛹️‍♀️ Lab - Build and Create an ImageStream 
+## ⛹️‍♀️ Lab - Build the application using BuildConfig and create an ImageStream 
 
 Let's first create the ImageStream resource
 ```
