@@ -796,11 +796,27 @@ Expected output is
 
 ## Deploying our nginx-operator into the OpenShift cluster
 ```
-make deploy IMG=tektutor/nginx-operator:1.0
+make deploy IMG=tektutor/nginx-openshift-operator
 ```
 
 Expected output is
 <pre>
+(jegan@tektutor.org)$ make deploy IMG=tektutor/nginx-openshift-operator
+cd config/manager && /home/jegan/openshift-sep-2022-batch1/Day5/custom-operator/bin/kustomize edit set image controller=tektutor/nginx-openshift-operator
+/home/jegan/openshift-sep-2022-batch1/Day5/custom-operator/bin/kustomize build config/default | kubectl apply -f -
+namespace/custom-operator-system created
+customresourcedefinition.apiextensions.k8s.io/nginxes.training.tektutor.org unchanged
+serviceaccount/custom-operator-controller-manager created
+role.rbac.authorization.k8s.io/custom-operator-leader-election-role created
+clusterrole.rbac.authorization.k8s.io/custom-operator-manager-role created
+clusterrole.rbac.authorization.k8s.io/custom-operator-metrics-reader created
+clusterrole.rbac.authorization.k8s.io/custom-operator-proxy-role created
+rolebinding.rbac.authorization.k8s.io/custom-operator-leader-election-rolebinding created
+clusterrolebinding.rbac.authorization.k8s.io/custom-operator-manager-rolebinding created
+clusterrolebinding.rbac.authorization.k8s.io/custom-operator-proxy-rolebinding created
+configmap/custom-operator-manager-config created
+service/custom-operator-controller-manager-metrics-service created
+deployment.apps/custom-operator-controller-manager created
 </pre>
 
 ## Check your deployment in the cluster
