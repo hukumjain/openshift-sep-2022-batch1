@@ -558,15 +558,13 @@ operator-sdk init --plugins=ansible --domain=tektutor.org
 
 Expected output is
 <pre>
-(jegan@tektutor.org)$ operator-sdk init --plugins=ansible --domain=tektutor.org
+(jegan@tektutor.org)$ <b>operator-sdk init --plugins=ansible --domain=tektutor.org</b>
 Writing kustomize manifests for you to edit...
 Next: define a resource with:
 $ operator-sdk create api
 </pre>
 
 Further, you can also check the folder listing and cat the file PROJECT
-<pre>
-</pre>
 
 ## Creating an API
 ```
@@ -574,6 +572,8 @@ operator-sdk create api --group training --version v1 --kind Nginx --generate-ro
 ```
 Expected output is
 <pre>
+(jegan@tektutor.org)$ <b>operator-sdk create api --group training --version v1 --kind Nginx --generate-role</b>
+Writing kustomize manifests for you to edit...
 </pre>
 
 ## Let's update the Ansible role
