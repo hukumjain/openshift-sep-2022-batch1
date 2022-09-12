@@ -568,6 +568,8 @@ Successfully installed cachetools-3.1.1 certifi-2021.10.8 chardet-4.0.0 enum34-1
 
 ## Initialize the ansible operator project
 ```
+mkdir ~/custom-openshift-operator
+cd ~/custom-openshift-operator
 operator-sdk init --plugins=ansible --domain=tektutor.org
 ```
 
