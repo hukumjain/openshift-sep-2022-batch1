@@ -805,7 +805,7 @@ In my case I already created a tektutor/nginx-openshift-operator public reposito
 
 ```
 docker tag tektutor/nginx-openshift-operator:1.0 tektutor/nginx-openshift-operator:latest
-docker push tektutor/nginx-openshift-operator:1.0
+docker push tektutor/nginx-openshift-operator:latest
 ```
 
 Expected output is
