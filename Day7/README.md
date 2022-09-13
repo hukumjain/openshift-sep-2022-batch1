@@ -29,6 +29,22 @@ In the above, the first environment variable value is retrieved from configmap, 
 https://medium.com/tektutor/openshift-ci-cd-with-tekton-faa88ba45656
 </pre>
 
+## CI/CD Build Servers
+- Jenkins (opensource)
+- Cloudbees (Enterprise Jenkins - with official support)
+- TeamCity
+- Bamboo
+- Microsoft Team Foundation Server (TFS)
+- Jenkins-x (Runs within Kubernetes and uses TekTon for CI/CD)
+- TekTon
+- ArgoCD
+
+## Jenkins/Cloudbees/TeamCity/Bamboo/TFS
+- a dedicated server will host these CI/CD platform
+- it uses the file-system to store all the Jobs in a specific workspace folders
+- Jenkins/Cloudbees comes with many plugins to integrate various type of Version Control
+- Server will be running 24x7(365 days) so that it get's notification when someone does code
+
 ## TekTon
 - is a knative CI/CD Framework that can be deployed and used with Kubernetes/OpenShift
 - it is a opensource project
@@ -36,6 +52,12 @@ https://medium.com/tektutor/openshift-ci-cd-with-tekton-faa88ba45656
 - RedHat provides support for TekTon
 - Tekton can be installed in Kubernetes/OpenShift as Operators from OperatorHub from Webconsole
 - Tekton can also installed in Kubernetes/OpenShift from CI using kubectl/oc
+- no dedicated server is required becuase it runs within OpenShift cluster
+- OpenShift even supports deploying 
+- Openshift allows deploy Private GitHub like Code repository using Gitea,Gogs version control within OpenShift
+- OpenShift allows deploying JFrog Artifactory or Sonatype Nexus to deploy your application binaries
+- JFrog Artifactory or Sonatype Nexus can also be used as Private Container Registry for OpenShift
+- Enter CI/CD can happen within OpenShift as it can technically host your source code, host CI/CD pipeline, also the deployment environment
 
 ## TekTon Commonly used Resources
 
