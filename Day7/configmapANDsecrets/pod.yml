@@ -1,0 +1,26 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: my-pod
+  labels:
+    app: mysql 
+spec:
+  containers:
+  - name: mysql-container
+    image: bitnami/mysql:latest
+    env:
+    - name: MYSQL_DATABASE
+      valueFrom:
+        configMapKeyRef:
+          name: mysql-configmap
+          key: database 
+    - name: MYSQL_ROOT_USER
+      valueFrom: 
+        secretKeyRef:
+          name: mysql-login-credentials
+          key: username
+    - name: MYSQL_ROOT_PASSWORD
+      valueFrom:
+        secretKeyRef:
+          name: mysql-login-credentials
+          key: password
