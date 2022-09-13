@@ -13,7 +13,7 @@ oc apply -f pod.yml
 ```
 The above pod retrieves the database name from configmap as it is a non-sentive data, while it retrieves the mysql username and password from a secret.  The key/value stored in configmap is stored as plain-text, while the key/value stored in a secrets is stored in an encrypted fashion.
 
-The best practice, you shouldn't commit(checkin) the secret yaml file in your version control.
+The best practice is, you shouldn't commit(checkin) the secret yaml file in your version control.
 
 Get inside the pod shell
 ```
