@@ -15,6 +15,14 @@ The above pod retrieves the database name from configmap as it is a non-sentive 
 
 The best practice, you shouldn't commit(checkin) the secret yaml file in your version control.
 
+Get inside the pod shell
+```
+oc exec -it my-pod sh
+echo $MYSQL_DATABASE
+echo $MYSQL_ROOT_USER
+echo $MYSQL_ROOT_PASSWORD
+```
+In the above, the first environment variable value is retrieved from configmap, while the other two are retrieved from a secret.
 
 ## You may check my medium blog on Tekton with OpenShift
 <pre>
