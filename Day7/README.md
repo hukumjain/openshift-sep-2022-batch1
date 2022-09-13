@@ -1,10 +1,25 @@
 # Day7
 
+## Lab - Understanding configmap and Secrets 
+```
+cd ~/openshift-sep-2022-batch1
+git pull
+
+cd Day7/configmapANDsecrets
+
+oc apply -f mysql-configmap.yml
+oc apply -f mysql-login-credentials.yml
+oc apply -f pod.yml
+```
+The above pod retrieves the database name from configmap as it is a non-sentive data, while it retrieves the mysql username and password from a secret.  The key/value stored in configmap is stored as plain-text, while the key/value stored in a secrets is stored in an encrypted fashion.
+
+The best practice, you shouldn't commit(checkin) the secret yaml file in your version control.
+
+
 ## You may check my medium blog on Tekton with OpenShift
 <pre>
 https://medium.com/tektutor/openshift-ci-cd-with-tekton-faa88ba45656
 </pre>
-
 
 ## TekTon
 - is a knative CI/CD Framework that can be deployed and used with Kubernetes/OpenShift
