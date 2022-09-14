@@ -1,0 +1,16 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: my-pod
+  labels:
+    app: ubuntu
+spec:
+  restartPolicy: Never
+  containers:
+  - name: c1
+    image: ubuntu
+    command:
+    - echo
+    args:
+    - "Hello Pod !"
+    

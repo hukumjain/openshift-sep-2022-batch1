@@ -1,0 +1,20 @@
+# permissions for end users to view tektutortasks.
+apiVersion: rbac.authorization.k8s.io/v1
+kind: ClusterRole
+metadata:
+  name: tektutortask-viewer-role
+rules:
+- apiGroups:
+  - training.tektutor.org
+  resources:
+  - tektutortasks
+  verbs:
+  - get
+  - list
+  - watch
+- apiGroups:
+  - training.tektutor.org
+  resources:
+  - tektutortasks/status
+  verbs:
+  - get

@@ -1,0 +1,19 @@
+---
+# tasks file for TekTutorTask
+- name: start nginx
+  kubernetes.core.k8s:
+    definition:
+      apiVersion: v1
+      kind: Pod
+      metadata:
+        name: "{{ ansible_operator_meta.name }}"
+        namespace: "{{ ansible_operator_meta.namespace }}"
+      spec:
+        restartPolicy: Never
+        containers:
+        - name: c1
+          image: ubuntu
+          command:
+          - echo
+          args:
+          - "{{ message }}"

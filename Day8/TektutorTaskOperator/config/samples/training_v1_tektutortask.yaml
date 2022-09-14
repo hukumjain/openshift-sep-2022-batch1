@@ -1,0 +1,7 @@
+apiVersion: training.tektutor.org/v1
+kind: TekTutorTask
+metadata:
+  name: tektutor-task1
+spec:
+  # TODO(user): Add fields here
+  message: "Hello TekTutor Task!"
