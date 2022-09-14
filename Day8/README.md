@@ -47,7 +47,7 @@ tkn taskrun logs hello-run-mdrx6 -f -n jegan
 [echo] Hello Tekton !
 </pre>
 
-## Lab - Creating a Tekton task with multiple steps
+## ⛹️‍♂️ Lab - Creating a Tekton task with multiple steps
 ```
 cd ~/openshift-sep-2022-batch1
 git pull
