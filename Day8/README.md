@@ -62,7 +62,7 @@ Expected output
 <pre>
 (jegan@tektutor.org)$ <b>oc apply -f task.yml</b>
 task.tekton.dev/hello-task-with-multiple-steps created
-(jegan@tektutor.org)$ tkn task list
+(jegan@tektutor.org)$ <b>tkn task list</b>
 NAME                             DESCRIPTION   AGE
 hello                                          24 minutes ago
 hello-task-with-multiple-steps                 6 seconds ago
