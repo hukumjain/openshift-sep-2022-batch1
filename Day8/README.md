@@ -79,6 +79,17 @@ tkn taskrun logs hello-task-with-multiple-steps-run-plbzg -f -n jegan
 [step-3] Step 3 => Hello TekTon !
 </pre>
 
+## Lab - Printing the logs of the last executed taskrun without mentioning its name
+```
+tkn taskrun logs --last
+```
+
+Expected output
+<pre>
+(jegan@tektutor.org)$ <b>tkn taskrun logs --last</b>
+[step1] Hello Tekton Task !
+</pre>
+
 ## Lab - Passing parameters to Tekton Task
 ```
 cd ~/openshift-sep-2022-batch1
@@ -110,4 +121,17 @@ In order to track the TaskRun progress run:
 tkn taskrun logs hello-task-with-params-run-f5rh9 -f -n jegan
 (jegan@tektutor.org)$ <b>tkn taskrun logs --last</b>
 [step1] Hello Tekton Task !
+</pre>
+
+## Lab - Start runing a Task and checking its logs with single command
+```
+tkn task start hello --showlog
+```
+
+Expected output
+<pre>
+(jegan@tektutor.org)$ <b>tkn task start hello --showlog</b>
+TaskRun started: hello-run-jz9ph
+Waiting for logs to be available...
+[echo] Hello Tekton !
 </pre>
