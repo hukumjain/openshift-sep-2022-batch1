@@ -79,7 +79,7 @@ tkn taskrun logs hello-task-with-multiple-steps-run-plbzg -f -n jegan
 [step-3] Step 3 => Hello TekTon !
 </pre>
 
-## Lab - Printing the logs of the last executed taskrun without mentioning its name
+## ⛹️‍♂️ Lab - Printing the logs of the last executed taskrun without mentioning its name
 ```
 tkn taskrun logs --last
 ```
@@ -90,7 +90,7 @@ Expected output
 [step1] Hello Tekton Task !
 </pre>
 
-## Lab - Passing parameters to Tekton Task
+## ⛹️‍♂️ Lab - Passing parameters to Tekton Task
 ```
 cd ~/openshift-sep-2022-batch1
 git pull
@@ -123,7 +123,7 @@ tkn taskrun logs hello-task-with-params-run-f5rh9 -f -n jegan
 [step1] Hello Tekton Task !
 </pre>
 
-## Lab - Start runing a Task and checking its logs with a single command
+## ⛹️‍♂️ Lab - Start runing a Task and checking its logs with a single command
 ```
 tkn task start hello --showlog
 ```
