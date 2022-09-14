@@ -13,7 +13,7 @@ cd ~/openshift-sep-2022-batch1
 git pull
 cd Day8/Tekton/lab1
 
-oc apply -f task1.yml
+oc apply -f task.yml
 oc get tasks
 tkn task list
 ```
