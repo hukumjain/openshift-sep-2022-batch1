@@ -79,4 +79,35 @@ tkn taskrun logs hello-task-with-multiple-steps-run-plbzg -f -n jegan
 [step-3] Step 3 => Hello TekTon !
 </pre>
 
-## 
+## Lab - Passing parameters to Tekton Task
+```
+cd ~/openshift-sep-2022-batch1
+git pull
+cd Day8/Tekton/lab3
+
+oc apply -f task.yml
+tkn task list
+tkn task start hello-task-with-params
+tkn taskrun logs --last
+```
+
+Expected output
+<pre>
+jegan@tektutor.org)$ <b>oc apply -f task.yml</b>
+task.tekton.dev/hello-task-with-params created
+(jegan@tektutor.org)$ <b>tkn task list</b>
+NAME                             DESCRIPTION   AGE
+hello                                          2 hours ago
+hello-task-with-multiple-steps                 2 hours ago
+hello-task-with-params                         7 seconds ago
+hello-test-task                                2 hours ago
+test-task                                      26 minutes ago
+(jegan@tektutor.org)$ <b>tkn task start hello-task-with-params</b>
+? Value for param `message` of type `string`? (Default is `Hello Tekton Task !`) Hello Tekton Task !
+TaskRun started: hello-task-with-params-run-f5rh9
+
+In order to track the TaskRun progress run:
+tkn taskrun logs hello-task-with-params-run-f5rh9 -f -n jegan
+(jegan@tektutor.org)$ <b>tkn taskrun logs --last</b>
+[step1] Hello Tekton Task !
+</pre>
