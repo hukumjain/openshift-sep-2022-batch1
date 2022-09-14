@@ -7,7 +7,7 @@
 - each Step within a Task is a Container within a Pod
 - if there are 3 Steps in a Task, Tekton will a Pod with 3 Containers in it
 
-## Writing our first Tekton task
+## Lab - Writing our first Tekton task
 ```
 cd ~/openshift-sep-2022-batch1
 git pull
