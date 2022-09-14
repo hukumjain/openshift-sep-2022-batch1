@@ -30,7 +30,7 @@ NAME    DESCRIPTION   AGE
 hello                 10 seconds ago
 </pre>
 
-## Executing your first Tekton task
+## ⛹️‍♂️ Lab - Executing your first Tekton task
 ```
 tkn task start hello
 tkn taskrun logs hello-run-mdrx6 -f -n jegan
