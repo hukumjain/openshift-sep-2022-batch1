@@ -123,7 +123,7 @@ tkn taskrun logs hello-task-with-params-run-f5rh9 -f -n jegan
 [step1] Hello Tekton Task !
 </pre>
 
-## Lab - Start runing a Task and checking its logs with single command
+## Lab - Start runing a Task and checking its logs with a single command
 ```
 tkn task start hello --showlog
 ```
