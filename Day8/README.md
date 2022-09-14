@@ -47,7 +47,7 @@ tkn taskrun logs hello-run-mdrx6 -f -n jegan
 [echo] Hello Tekton !
 </pre>
 
-## Lab - Creating a Tekton task with multiple steps
+## ⛹️‍♂️ Lab - Creating a Tekton task with multiple steps
 ```
 cd ~/openshift-sep-2022-batch1
 git pull
@@ -62,7 +62,7 @@ Expected output
 <pre>
 (jegan@tektutor.org)$ <b>oc apply -f task.yml</b>
 task.tekton.dev/hello-task-with-multiple-steps created
-(jegan@tektutor.org)$ tkn task list
+(jegan@tektutor.org)$ <b>tkn task list</b>
 NAME                             DESCRIPTION   AGE
 hello                                          24 minutes ago
 hello-task-with-multiple-steps                 6 seconds ago
@@ -78,3 +78,5 @@ tkn taskrun logs hello-task-with-multiple-steps-run-plbzg -f -n jegan
 
 [step-3] Step 3 => Hello TekTon !
 </pre>
+
+## 
