@@ -250,7 +250,7 @@ git pull
 cd Day9/clone-git-repo
 oc apply -f tekton-pv.yml
 oc apply -f tekton-pvc.yml
-oc apply -f task.yml
+oc create -f task.yml
 ```
 
 Expected output
