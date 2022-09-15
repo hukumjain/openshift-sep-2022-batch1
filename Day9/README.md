@@ -160,20 +160,20 @@ tkn tr logs -f --last
 
 Expected output
 <pre>
-(jegan@tektutor.org)$ ls
+(jegan@tektutor.org)$ <b>ls</b>
 task.yml  tekton-pvc.yml  tekton-pv.yml
-(jegan@tektutor.org)$ oc get pv,pvc
+(jegan@tektutor.org)$ <b>oc get pv,pvc</b>
 NAME                               CAPACITY   ACCESS MODES   RECLAIM POLICY   STATUS   CLAIM                                                           STORAGECLASS   REASON   AGE
 persistentvolume/ansible-pv        8Gi        RWO            Retain           Bound    ansible-automation-platform/postgres-13-ansible-postgres-13-0                           33d
 persistentvolume/tekton-pv-jegan   5Mi        RWX            Retain           Bound    jegan/tekton-pvc-jegan                                                                  34m
 
 NAME                                     STATUS   VOLUME            CAPACITY   ACCESS MODES   STORAGECLASS   AGE
 persistentvolumeclaim/tekton-pvc-jegan   Bound    tekton-pv-jegan   5Mi        RWX                           34m
-(jegan@tektutor.org)$ ls
+(jegan@tektutor.org)$ <b>ls</b>
 task.yml  tekton-pvc.yml  tekton-pv.yml
-(jegan@tektutor.org)$ oc create -f task.yml 
+(jegan@tektutor.org)$ <b>oc create -f task.yml</b>
 taskrun.tekton.dev/clone-tektutor-github-repo-wvjpz created
-(jegan@tektutor.org)$ tkn tr list
+(jegan@tektutor.org)$ <b>tkn tr list</b>
 NAME                               STARTED          DURATION   STATUS
 clone-tektutor-github-repo-wvjpz   7 seconds ago    0s         Failed(TaskRunResolutionFailed)
 taskrun-with-pv-nlw2t              34 minutes ago   14s        Succeeded
@@ -255,9 +255,9 @@ oc apply -f task.yml
 
 Expected output
 <pre>
-(jegan@tektutor.org)$ oc create -f task.yml 
+(jegan@tektutor.org)$ <b>oc create -f task.yml</b>
 taskrun.tekton.dev/clone-tektutor-github-repo-r28fl created
-(jegan@tektutor.org)$ tkn taskrun logs -f --last
+(jegan@tektutor.org)$ <b>tkn taskrun logs -f --last</b>
 [clone] + '[' false '=' true ]
 [clone] + '[' false '=' true ]
 [clone] + '[' false '=' true ]
