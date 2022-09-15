@@ -40,7 +40,7 @@ Expected output
 ```
 cd ~/openshift-sep-2022-batch1
 git pull
-cd Day8/task-with-configmap
+cd Day9/task-with-configmap
 
 oc create -f task.yml 
 tkn tr logs -f --last
@@ -61,7 +61,7 @@ taskrun.tekton.dev/taskrun-with-configmap-dg7ww created
 ```
 cd ~/openshift-sep-2022-batch1
 git pull
-cd Day8/task-with-secret
+cd Day9/task-with-secret
 
 oc create -f task.yml 
 tkn tr list
@@ -97,7 +97,7 @@ hello-taskrun-v1-8fptl         1 hour ago       11s        Succeeded
 ```
 cd ~/openshift-sep-2022-batch1
 git pull
-cd Day8/task-with-persistentvolume
+cd Day9/task-with-persistentvolume
 
 oc apply -f tekton-pv.yml
 oc apply -f tekton-pvc.yml
@@ -140,7 +140,7 @@ hello-taskrun-v1-8fptl         2 hours ago     11s        Succeeded
 ```
 cd ~/openshift-sep-2022-batch1
 git pull
-cd Day8/git-clone-task
+cd Day9/git-clone-task
 
 oc apply -f tekton-pv.yml
 oc apply -f tekton-pvc.yml
@@ -180,17 +180,17 @@ taskrun-with-configmap-qcf7d       2 hours ago      12s        Failed
 taskrun-with-configmap-nntgl       2 hours ago      11s        Succeeded
 taskrun-with-configmap-52b7w       2 hours ago      42s        Succeeded
 hello-taskrun-v1-8fptl             2 hours ago      11s        Succeeded
-(jegan@tektutor.org)$ tkn tr logs -f --last
+(jegan@tektutor.org)$ <b>tkn tr logs -f --last</b>
 task git-clone has failed: error when listing tasks for taskRun clone-tektutor-github-repo-wvjpz: tasks.tekton.dev "git-clone" not found
 Error: pod for taskrun clone-tektutor-github-repo-wvjpz not available yet
-(jegan@tektutor.org)$ tkn hub install task git-clone
+(jegan@tektutor.org)$ <b>tkn hub install task git-clone</b>
 Task git-clone(0.8) installed in jegan namespace
-(jegan@tektutor.org)$ tkn t list
+(jegan@tektutor.org)$ <b>tkn t list</b>
 NAME        DESCRIPTION              AGE
 git-clone   These Tasks are Git...   13 seconds ago
-(jegan@tektutor.org)$ oc create -f task.yml 
+(jegan@tektutor.org)$ <b>oc create -f task.yml</b>
 taskrun.tekton.dev/clone-tektutor-github-repo-f89d4 created
-(jegan@tektutor.org)$ tkn tr list
+(jegan@tektutor.org)$ <b>tkn tr list</b>
 ^[[ANAME                               STARTED          DURATION   STATUS
 clone-tektutor-github-repo-f89d4   5 seconds ago    ---        Running(Pending)
 clone-tektutor-github-repo-wvjpz   1 minute ago     0s         Failed(TaskRunResolutionFailed)
@@ -207,7 +207,7 @@ taskrun-with-configmap-qcf7d       2 hours ago      12s        Failed
 taskrun-with-configmap-nntgl       2 hours ago      11s        Succeeded
 taskrun-with-configmap-52b7w       2 hours ago      42s        Succeeded
 hello-taskrun-v1-8fptl             2 hours ago      11s        Succeeded
-(jegan@tektutor.org)$ tkn tr logs -f --last
+(jegan@tektutor.org)$ <b>tkn tr logs -f --last</b>
 [clone] + '[' false '=' true ]
 [clone] + '[' false '=' true ]
 [clone] + '[' false '=' true ]
