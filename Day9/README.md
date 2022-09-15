@@ -139,7 +139,7 @@ hello-taskrun-v1-8fptl         2 hours ago     11s        Succeeded
 [print-path] /my/myworkspace
 </pre>
 
-## Task to clone github repo
+## ⛹️‍♀️ Lab - Task to clone github repo
 ```
 cd ~/openshift-sep-2022-batch1
 git pull
