@@ -1,0 +1,20 @@
+apiVersion: tekton.dev/v1beta1
+kind: TaskRun
+metadata:
+  generateName: clone-tektutor-github-repo-
+spec:
+  taskRef:
+    name: git-clone
+  params:
+  - name: url
+    value: https://github.com/tektutor/spring-ms.git
+  
+  - name: revision
+    value: master
+
+  workspaces:
+  - name: output
+    persistentVolumeClaim:
+      claimName: tekton-pvc-jegan
+    subPath: source
+       

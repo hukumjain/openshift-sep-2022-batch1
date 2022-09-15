@@ -1,0 +1,16 @@
+# Replace 'jegan' with your name wherever you see it in this file
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: tekton-pvc-jegan 
+spec:
+  selector:
+    matchLabels:
+      name: jegan
+  accessModes:
+    - ReadWriteMany
+  volumeMode: Filesystem
+  resources:
+    requests:
+      storage: 5Mi
+
