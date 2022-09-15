@@ -72,8 +72,9 @@ tkn tr logs -f --last
 
 Expected output
 <pre>
-(jegan@tektutor.org)$ <b>oc create -f task.yml</b>
+(jegan@tektutor.org)$ <b>oc apply -f secret.yml</b>
 secret/openshift-login-credentials created
+(jegan@tektutor.org)$ <b>oc create -f taskrun.yml</b>
 taskrun.tekton.dev/task-with-secrets-f9lxc created
 (jegan@tektutor.org)$ <b>tkn tr list</b>
 NAME                           STARTED          DURATION   STATUS
