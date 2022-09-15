@@ -242,7 +242,7 @@ hello-taskrun-v1-8fptl             2 hours ago      11s        Succeeded
 [clone] + printf '%s' https://github.com/tektutor/spring-ms.git
 </pre>
 
-## Clone GitHub Repository from a Tekton Task
+## ⛹️‍♀️ Lab - Clone GitHub Repository from a Tekton Task
 ```
 cd ~/openshift-sep-2022-batch1
 git pull
