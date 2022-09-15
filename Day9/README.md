@@ -64,7 +64,8 @@ cd ~/openshift-sep-2022-batch1
 git pull
 cd Day9/task-with-secret
 
-oc create -f task.yml 
+oc apply -f secret.yml
+oc create -f taskrun.yml 
 tkn tr list
 tkn tr logs -f --last
 ```
