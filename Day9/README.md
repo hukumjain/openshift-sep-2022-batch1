@@ -235,3 +235,44 @@ hello-taskrun-v1-8fptl             2 hours ago      11s        Succeeded
 [clone] + printf '%s' dd9d75b76029ced3481833315d937cfc6cf3975a
 [clone] + printf '%s' https://github.com/tektutor/spring-ms.git
 </pre>
+
+## Clone GitHub Repository from a Tekton Task
+```
+cd ~/openshift-sep-2022-batch1
+git pull
+
+cd Day9/clone-git-repo
+oc apply -f tekton-pv.yml
+oc apply -f tekton-pvc.yml
+oc apply -f task.yml
+```
+
+Expected output
+<pre>
+(jegan@tektutor.org)$ oc create -f task.yml 
+taskrun.tekton.dev/clone-tektutor-github-repo-r28fl created
+(jegan@tektutor.org)$ tkn taskrun logs -f --last
+[clone] + '[' false '=' true ]
+[clone] + '[' false '=' true ]
+[clone] + '[' false '=' true ]
+[clone] + CHECKOUT_DIR=/workspace/output/
+[clone] + '[' true '=' true ]
+[clone] + cleandir
+[clone] + '[' -d /workspace/output/ ]
+[clone] + rm -rf '/workspace/output//*'
+[clone] + rm -rf '/workspace/output//.[!.]*'
+[clone] + rm -rf '/workspace/output//..?*'
+[clone] + test -z 
+[clone] + test -z 
+[clone] + test -z 
+[clone] + /ko-app/git-init '-url=https://github.com/tektutor/spring-ms.git' '-revision=master' '-refspec=' '-path=/workspace/output/' '-sslVerify=true' '-submodules=true' '-depth=1' '-sparseCheckoutDirectories='
+[clone] {"level":"info","ts":1663225819.4560235,"caller":"git/git.go:170","msg":"Successfully cloned https://github.com/tektutor/spring-ms.git @ dd9d75b76029ced3481833315d937cfc6cf3975a (grafted, HEAD, origin/master) in path /workspace/output/"}
+[clone] {"level":"info","ts":1663225819.5435658,"caller":"git/git.go:208","msg":"Successfully initialized and updated submodules in path /workspace/output/"}
+[clone] + cd /workspace/output/
+[clone] + git rev-parse HEAD
+[clone] + RESULT_SHA=dd9d75b76029ced3481833315d937cfc6cf3975a
+[clone] + EXIT_CODE=0
+[clone] + '[' 0 '!=' 0 ]
+[clone] + printf '%s' dd9d75b76029ced3481833315d937cfc6cf3975a
+[clone] + printf '%s' https://github.com/tektutor/spring-ms.git
+</pre>
