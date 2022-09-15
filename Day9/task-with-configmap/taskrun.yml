@@ -1,0 +1,25 @@
+apiVersion: tekton.dev/v1beta1
+kind: TaskRun
+metadata:
+  generateName: taskrun-with-configmap-
+spec:
+  workspaces:
+  - name: env-settings
+    configMap:
+      name: tools-path-cm
+      items:
+      - key: jdk_home
+        path: jdk_home_cm_key_value.txt
+      - key: m2_home
+        path: m2_home_cm_key_value.txt
+  taskSpec:
+    steps:
+    - name: read-tools-path-from-cm
+      image: ubuntu
+      script: |
+        cat $(workspaces.env-settings.path)/jdk_home_cm_key_value.txt
+        echo -e "\n" 
+        cat $(workspaces.env-settings.path)/m2_home_cm_key_value.txt
+    workspaces:
+    - name: env-settings
+      mountPath: /my/configmap

@@ -1,0 +1,12 @@
+apiVersion: tekton.dev/v1beta1
+kind: TaskRun
+metadata:
+  generateName: hello-taskrun-
+spec:
+  taskRef:
+    name: hello-my-task
+  params:
+  - name: msg1
+    value: "Taskrun message 1"
+  - name: msg2
+    value: "Taskrun message 2"

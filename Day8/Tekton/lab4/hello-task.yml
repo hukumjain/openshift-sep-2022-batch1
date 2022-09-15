@@ -1,0 +1,16 @@
+apiVersion: tekton.dev/v1beta1
+kind: Task
+metadata:
+  name: hello-my-task
+spec:
+  params:
+  - name: msg1
+    type: string
+  - name: msg2
+    type: string
+  steps:
+  - name: step1
+    image: ubuntu
+    script: |
+      echo $(params.msg1)
+      echo $(params.msg2)

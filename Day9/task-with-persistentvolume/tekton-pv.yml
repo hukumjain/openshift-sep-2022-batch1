@@ -1,0 +1,16 @@
+# Replace 'jegan' with your name where you see it in this file
+apiVersion: v1
+kind: PersistentVolume
+metadata:
+  name: tekton-pv-jegan 
+  labels:
+    name: jegan
+spec:
+  capacity:
+    storage: 5Mi
+  accessModes:
+    - ReadWriteMany
+  persistentVolumeReclaimPolicy: Retain
+  nfs:
+    path: /mnt/tekton  # This path would like /mnt/user1 or /mnt/user2 dependending on user
+    server: 192.168.1.80 # This would either 192.168.1.207 or 192.168.1.208 depending on ur server
