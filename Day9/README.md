@@ -140,12 +140,6 @@ hello-taskrun-v1-8fptl         2 hours ago     11s        Succeeded
 </pre>
 
 ## ⛹️‍♀️ Lab - Task to clone github repo
-We need to first install git-clone task from Tekton Hub
-```
-tkn hub install task git-clone
-```
-
-You can create the taskrun now as shown below
 ```
 cd ~/openshift-sep-2022-batch1
 git pull
@@ -243,6 +237,13 @@ hello-taskrun-v1-8fptl             2 hours ago      11s        Succeeded
 </pre>
 
 ## ⛹️‍♀️ Lab - Clone GitHub Repository from a Tekton Task
+We need to first install git-clone task from Tekton Hub
+```
+tkn hub install task git-clone
+```
+
+You can create the taskrun now as shown below
+
 ```
 cd ~/openshift-sep-2022-batch1
 git pull
