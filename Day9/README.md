@@ -43,7 +43,7 @@ git pull
 cd Day9/task-with-configmap
 
 oc apply -f configmap.yml
-oc create -f task.yml 
+oc create -f taskrun.yml 
 tkn tr logs -f --last
 ```
 
