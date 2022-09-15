@@ -42,6 +42,7 @@ cd ~/openshift-sep-2022-batch1
 git pull
 cd Day9/task-with-configmap
 
+oc apply -f configmap.yml
 oc create -f task.yml 
 tkn tr logs -f --last
 ```
