@@ -1,0 +1,121 @@
+apiVersion: tekton.dev/v1beta1
+kind: Task
+metadata:
+  name: task1
+spec:
+  steps:
+  - name: step1
+    image: ubuntu
+    command:
+    - echo
+    args:
+    - Task1 - Step1
+
+  - name: step2
+    image: ubuntu
+    command:
+    - echo
+    args:
+    - Task1 - Step2
+---
+apiVersion: tekton.dev/v1beta1
+kind: Task
+metadata:
+  name: task2
+spec:
+  steps:
+  - name: step1
+    image: ubuntu
+    command:
+    - echo
+    args:
+    - Task2 - Step1
+
+  - name: step2
+    image: ubuntu
+    command:
+    - echo
+    args:
+    - Task2 - Step2
+
+  - name: step3
+    image: ubuntu
+    command:
+    - echo
+    args:
+    - Task2 - Step3
+---
+apiVersion: tekton.dev/v1beta1
+kind: Task
+metadata:
+  name: task3
+spec:
+  steps:
+  - name: step1
+    image: ubuntu
+    command:
+    - echo
+    args:
+    - Task3 - Step1
+---
+apiVersion: tekton.dev/v1beta1
+kind: Task
+metadata:
+  name: task4
+spec:
+  steps:
+  - name: step1
+    image: ubuntu
+    command:
+    - echo
+    args:
+    - Task4 - Step1
+---
+apiVersion: tekton.dev/v1beta1
+kind: Task
+metadata:
+  name: task5
+spec:
+  steps:
+  - name: step1
+    image: ubuntu
+    command:
+    - echo
+    args:
+    - Task5 - Step1
+---
+apiVersion: tekton.dev/v1beta1
+kind: Pipeline
+metadata:
+  name: second-pipeline
+spec:
+  tasks:
+  - name: pipeline-task1 
+    taskRef:
+      kind: Task
+      name: task1
+
+  - name: pipeline-task2
+    runAfter:
+    - pipeline-task1
+    taskRef:
+      name: task2
+
+  - name: pipeline-task3
+    runAfter:
+    - pipeline-task1
+    taskRef:
+      name: task3
+
+  - name: pipeline-task4
+    runAfter:
+    - pipeline-task2
+    - pipeline-task3
+    taskRef:
+      name: task4
+
+  - name: pipeline-task5
+    runAfter:
+    - pipeline-task4
+    taskRef:
+      name: task5
