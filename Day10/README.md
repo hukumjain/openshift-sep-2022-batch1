@@ -19,7 +19,41 @@ task.tekton.dev/task2 created
 pipeline.tekton.dev/first-pipeline created
 </pre>
 
+## Lab - Creating your second pipeline
+```
+cd ~/openshift-sep-2022-batch1
+git pull
+cd Day10/pipelines
 
+oc apply -f second-pipeline.yml
+tkn pipeline list
+tkn pipeline start second-pipeline
+```
+
+Expected output
+<pre>
+(jegan@tektutor.org)$ tkn pipeline start second-pipeline
+PipelineRun started: second-pipeline-run-9chmv
+
+In order to track the PipelineRun progress run:
+tkn pipelinerun logs second-pipeline-run-9chmv -f -n jegan
+(jegan@tektutor.org)$ tkn pipelinerun logs second-pipeline-run-9chmv -f -n jegan
+[pipeline-task1 : step1] Task1 - Step1
+
+[pipeline-task1 : step2] Task1 - Step2
+
+[pipeline-task3 : step1] Task3 - Step1
+
+[pipeline-task2 : step1] Task2 - Step1
+
+[pipeline-task2 : step2] Task2 - Step2
+
+[pipeline-task2 : step3] Task2 - Step3
+
+[pipeline-task4 : step1] Task4 - Step1
+
+[pipeline-task5 : step1] Task5 - Step1
+</pre>
 
 ## TekTon Trigger
 ```
