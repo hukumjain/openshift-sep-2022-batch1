@@ -51,12 +51,12 @@ metadata:
   name: first-pipeline
 spec:
   tasks:
-  - name: task1
+  - name: pipeline-task1
     taskRef:
       kind: Task
       name: task1
-  - name: task2
+  - name: pipeline-task2
     runAfter:
-    - task1
+    - pipeline-task1
     taskRef:
       name: task2
