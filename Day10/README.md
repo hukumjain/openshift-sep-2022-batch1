@@ -2,7 +2,7 @@
 
 ## Lab - Creating your first pipeline
 ```
-cd ~/openshift-sep-2022-batch1
+cd ~/openshift-sep-2022-batch2
 git pull
 cd Day10/pipelines
 
@@ -21,7 +21,7 @@ pipeline.tekton.dev/first-pipeline created
 
 ## Lab - Creating your second pipeline
 ```
-cd ~/openshift-sep-2022-batch1
+cd ~/openshift-sep-2022-batch2
 git pull
 cd Day10/pipelines
 
@@ -68,7 +68,7 @@ oc apply -f https://github.com/bigkevmcd/tekton-polling-operator/releases/downlo
 
 Let's create the pipeline and setup the github polling
 ```
-cd ~/openshift-sep-2022-batch1
+cd ~/openshift-sep-2022-batch2
 git pull
 
 cd Day10/poll-and-trigger-tekon-pipeline
@@ -78,7 +78,7 @@ oc apply -f github-trigger.yml
 
 ## Lab - TekTon Trigger
 ```
-cd ~/openshift-sep-2022-batch1
+cd ~/openshift-sep-2022-batch2
 git pull
 cd Day10/github-webhook-trigger-using-curl-tekton-pipeline
 
