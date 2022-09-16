@@ -1,5 +1,26 @@
 # Day 10
 
+## Lab - Creating your first pipeline
+```
+cd ~/openshift-sep-2022-batch1
+git pull
+cd Day10/pipelines
+
+oc apply -f first-pipeline.yml
+tkn pipeline list
+tkn pipeline start first-pipeline
+```
+
+Expected output
+<pre>
+(jegan@tektutor.org)$ oc apply -f first-pipeline.yml 
+task.tekton.dev/task1 created
+task.tekton.dev/task2 created
+pipeline.tekton.dev/first-pipeline created
+</pre>
+
+
+
 ## TekTon Trigger
 ```
 cd ~/openshift-sep-2022-batch1
