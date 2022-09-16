@@ -55,7 +55,28 @@ tkn pipelinerun logs second-pipeline-run-9chmv -f -n jegan
 [pipeline-task5 : step1] Task5 - Step1
 </pre>
 
-## TekTon Trigger
+## Lab - Triggering Tekton Pipeline using polling
+
+We need to install a tekton-polling operator.  This helps triggering pipeline on local openshift setup.
+
+In case of local OpenShift setup, GitHub won't be able to invoke the OpenShift public route, hence the only way to trigger pipeline is using the polling operator.
+
+Let's install the polling operator
+```
+oc apply -f https://github.com/bigkevmcd/tekton-polling-operator/releases/download/v0.4.0/release-v0.4.0.yaml
+```
+
+Let's create the pipeline and setup the github polling
+```
+cd ~/openshift-sep-2022-batch1
+git pull
+
+cd Day10/poll-and-trigger-tekon-pipeline
+oc apply -f java-cicd-pipeline.yml
+oc apply -f github-trigger.yml
+```
+
+## Lab - TekTon Trigger
 ```
 cd ~/openshift-sep-2022-batch1
 git pull
