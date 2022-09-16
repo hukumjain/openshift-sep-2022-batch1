@@ -3,14 +3,13 @@ kind: Repository
 metadata:
   name: tektutor-git-repo
 spec:
-  url: https://github.com/tektutor/tekton-may-2022.git
+  url: https://github.com/tektutor/hello-spring-boot.git
   ref: main
   frequency: 2m
   type: github
   pipelineRef:
-    name: java-cicd-pipeline
-    serviceAccountName: default
-    namespace: jegan
+    name: java-tekton-cicd-pipeline
+    serviceAccountName: pipeline 
     params:
     - name: sha
       expression: commit.sha
@@ -19,9 +18,9 @@ spec:
     workspaces:
     - name: source-code
       persistentVolumeClaim:
-        claimName: tektutor-tekton-pvc
+        claimName: tekton-pvc-jegan
       subPath: source
     - name: maven-repo 
       persistentVolumeClaim:
-        claimName: tektutor-tekton-pvc
-      subPath: m2 
+        claimName: tekton-pvc-jegan
+      subPath: settings 

@@ -13,7 +13,7 @@ spec:
   - ReadWriteMany
   persistentVolumeReclaimPolicy: Retain
   nfs:
-    server: 192.168.1.80 # Replace this with your server IP 192.168.1.207 or 192.168.1.208
+    server: 192.168.1.80 # Replace this with your server IP 192.168.1.205 or 192.168.1.206
     path: "/mnt/tekton" # If your centos user is user1 then folder will be /mnt/user1
 ---
 apiVersion: v1
